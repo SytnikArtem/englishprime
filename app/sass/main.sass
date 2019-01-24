@@ -65,8 +65,9 @@ body
 	min-width: 320px
 	position: relative
 	line-height: normal
-	font-family: "SegoeUI", sans-serif
+	font-family: "Lato", sans-serif
 	overflow-x: hidden
+	padding-top: 123px
 
 img
 	display: block
@@ -77,15 +78,988 @@ img
 	max-width: 1360px
 	padding: 0 40px
 	margin: 0 auto
+.title
+	color: $dark
+	font-family: "GothamProBlack"
+	font-size: 64px
+	line-height: 70px
+.subtitle
+	color: $dark
+	font-family: "GothamProBlack"
+	font-size: 48px
+	line-height: 43.84px
+	&_white
+		color: #ffffff
+.active-color
+	color: $active
+.hidden
+	overflow: hidden
+	display: inline-block
+.gsapTop
+	display: inline-block
+	transform: translateY(-100%)
+.gsapFade
+	opacity: 0
+.gsapFadeTop
+	opacity: 0
+	transform: translateY(100%)
+	display: block
+.line
+	width: 70px
+	height: 2px
+	margin-top: 40px
+	display: inline-block
+	&-overlay
+		width: 0
+		height: 100%
+		background-color: $dark
+		opacity: 0.1
+		&_dark
+			opacity: 1
+		&_percent
+			opacity: 1
+			background: $active
+		&_white
+			background: #ffffff
+.text
+	color: #56585e
+	font-size: 16px
+	line-height: 23.91px
+.slick-slide
+	outline: none
+.accent-text
+	color: $accent
+.btn
+	outline: none
+	border: none
+	color: #ffffff
+	font-family: "LatoBold"
+	font-size: 12px
+	text-transform: uppercase
+	display: inline-block
+	padding: 20px 32px
+	text-decoration: none
+	background: $active
+	cursor: pointer
+.arrow-svg
+	width: 7px
+	height: 10px
+.drop-line
+	position: absolute
+	width: 1px
+	height: 0
+	top: 0
+	left: 0
+	background: rgba(255, 255, 255, 0.05)
+.table-line
+	width: 0
+	height: 1px
+	position: absolute
+	left: 0
+	background: rgba(255, 255, 255, 0.05)
+	&_first
+		bottom: 320px
+	&_second
+		bottom: 240px
+	&_third
+		bottom: 160px
+	&_fourth
+		bottom: 80px
 .header
 	position: fixed
 	top: 0
 	left: 0
 	width: 100%
+	z-index: 5
+	background: #f5f7fa
 	&-row
 		display: flex
 		justify-content: space-between
 		align-items: center
-	&-img
+		border-bottom: 1px solid rgba(185, 185, 185, 0.2)
+		padding: 45px 0 40px
+	&-left
+		width: 205px
+	&-list
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&-center
+		margin: 0 40px 0 10px
+	&-item
+		color: #646a77
+		font-size: 12px
+		font-weight: 700
+		text-transform: uppercase
+		margin-right: 40px
+		cursor: pointer
+		position: relative
+		&-span
+			transition: transform 0.3s, opacity 0.3s
+			transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+			display: inline-block
+			padding-top: 5px
+			padding-bottom: 5px
+
+		&:hover
+			.header-item-span
+				opacity: 0
+				transform: translate3d(0, -10px, 0)
+			&:after
+				padding-top: 5px
+				padding-bottom: 5px
+				opacity: 1
+				transform: translate3d(0, 0, 0)
+		&:after
+			content: attr(data-text)
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			opacity: 0
+			color: $accent
+			transform: translate3d(0, 10px, 0)
+			transition: transform 0.3s, opacity 0.3s
+			transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+		&:last-child
+			margin-right: 0
+		&-link
+			color: inherit
+			text-decoration: none
+		&.drop
+			padding-right: 15px
+			position: relative
+			&:before
+				width: 9px
+				height: 6px
+				content: ''
+				position: absolute
+				top: 8px
+				right: 0
+				background: url(../img/arrow-down.svg) no-repeat center
+	&-lang
+		padding-right: 15px
+		position: relative
+		&:before
+			width: 9px
+			height: 6px
+			content: ''
+			position: absolute
+			top: 4px
+			right: 0
+			background: url(../img/arrow-down.svg) no-repeat center
+		&-sublist
+			position: absolute
+			width: 100%
+			left: 0
+			bottom: 0
+			opacity: 0
+			pointer-events: none
+		&-item
+			color: #646a77
+			font-size: 13px
+			font-weight: 700
+			cursor: pointer
+	&-right
+		display: flex
+		justify-content: space-between
+		align-items: center
+		width: 250px
+	&-phone
+		color: #646a77
+		font-size: 13px
+		font-weight: 700
+		padding: 0 15px 0 26px
+		position: relative
+		text-decoration: none
+		z-index: 2
+		&:before
+			width: 9px
+			height: 6px
+			content: ''
+			position: absolute
+			top: 4px
+			right: 0
+			background: url(../img/arrow-down.svg) no-repeat center
+			transition: opacity .5s ease
+			opacity: 1
+		&:after
+			width: 14px
+			height: 14px
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			background: url(../img/phone.svg) no-repeat left center
+			background-size: 14px 14px
+			opacity: 0
+			transition: opacity .5s ease
+	&-enter
+		color: #646a77
+		font-size: 13px
+		font-weight: 700
+		text-decoration: none
+	&-block
+		position: relative
+		&:hover
+			.header-info
+				opacity: 1
+				pointer-events: auto
+			.header-phone:before
+				opacity: 0
+			.header-phone:after
+				opacity: 1
+	&-info
+		display: flex
+		box-shadow: 5px 30px 40px rgba(0, 0, 0, 0.1)
+		background-color: #ffffff
+		width: 365px
+		position: absolute
+		padding: 30px
+		justify-content: space-between
+		top: -26px
+		left: -215px
+		pointer-events: none
+		opacity: 0
+		transition: opacity .5s ease
+		&-title
+			color: #4a505c
+			font-size: 13px
+			font-weight: 700
+			margin-bottom: 10px
+		&-text
+			color: #4a505c
+			font-size: 13px
+			white-space: nowrap
+			padding: 3px 0
+			&:last-child
+				padding-bottom: 0
+		&-phone
+			color: #264796
+			font-size: 13px
+			font-weight: 700
+			display: inline-block
+			text-decoration: none
+			padding: 2px 0 2px 35px
+			margin: 5px 0
+			&_second
+				background: url(../img/kyivstar.svg) no-repeat left center
+				background-size: 30px 30px
+			&_third
+				background: url(../img/vodafone.svg) no-repeat left 5px center
+				background-size: 22px 22px
+		&-right
+			display: flex
+			flex-direction: column
+			align-items: flex-end
+			justify-content: flex-start
+			padding-top: 22px
+.drop
+	position: relative
+	&:hover
+		.drop-list
+			opacity: 1
+			pointer-events: auto
+	&-list
+		background: #264796
+		width: 200px
+		padding: 8px 0
+		position: absolute
+		top: 30px
+		left: -20px
+		opacity: 0
+		pointer-events: none
+		transition: opacity .5s ease
+		&:hover
+			opacity: 1
+			pointer-events: auto
+		&:before
+			position: absolute
+			width: 100%
+			height: 20px
+			background: transparent
+			content: ''
+			top: -20px
+			left: 0
+	&-link
+		color: #f5f7fa
+		font-size: 12px
+		font-weight: 700
+		text-transform: uppercase
+		text-decoration: none
+		padding: 9px 50px 9px 20px
+		display: block
+		transition: background-color .5s ease
+		&:hover
+			background: #e31d23
+
+.first
+	background: #f5f7fa
+	padding: 115px 0 0
+	position: relative
+	&-title
+		height: 165px
+		&_second
+			position: relative
+			top: -30px
+		&_third
+			position: relative
+			top: -60px
+	&-flex
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		position: relative
+	&-left
+		width: 450px
+	&-right
+		width: 794px
+		position: relative
+		padding-bottom: 40px
+		&-overlay
+			width: 0
+			height: 340px
+			background: rgba(230, 232, 238, 0.4)
+			position: absolute
+			left: 0
+			bottom: 0
+	&-slider
+		margin: -55px 0 0 105px
+		width: 815px
+	&-text
+		max-width: 285px
+		margin-top: 35px
+		color: #4a505c
+		font-size: 18px
+	&-btns
+		width: 192px
+		height: 96px
+		display: flex
+		position: absolute
+		bottom: 0
+		right: 0
+	&-btn
+		width: 50%
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		background: #ffffff
+		cursor: pointer
+		transition: background-color .5s ease
+		&:hover
+			background: $active
+			.first-arrow rect
+				fill: #ffffff
+		&_back
+			background: #e6e8ee
+	&-arrow
+		width: 7px
+		height: 10px
+		&_back
+			transform: rotate(180deg)
+		rect
+			fill: #939aaa
+			transition: fill .5s ease
+.hover-span
+	transition: transform 0.3s, opacity 0.3s
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+	padding: 18px 28px
+.second
+	&-flex
+		display: flex
+		justify-content: space-between
+	&-left
+		width: 486px
+		flex-shrink: 0
+		margin-top: -96px
+		position: relative
+
+	&-right
+		width: 100%
+		overflow: hidden
+		&-top
+			padding: 105px 100px 110px 110px
+	&-link
+		width: 100%
+		display: block
+		color: #ffffff
+		font-family: "LatoBold"
+		font-size: 18px
+		text-decoration: none
+		padding: 37px 30px
+		background: $active
+		&-span
+			display: flex
+			align-items: center
+			justify-content: space-between
+	&-form
+		background: #273555
+		padding: 60px
+		&-title
+			color: #fefefe
+			font-family: "GothamProBlack"
+			font-size: 36px
+			line-height: 31.88px
+			margin-bottom: 45px
+		&-input
+			width: 100%
+			color: #ffffff
+			font-size: 14px
+			background: transparent
+			border: none
+			border-bottom: 2px solid rgba(193, 201, 219, 0.2)
+			outline: none
+			border-radius: 0
+			padding: 16px 0
+			margin-bottom: 30px
+		&-text
+			color: #ffffff
+			font-family: "LatoBold"
+			font-size: 14px
+			padding: 30px 0 25px
+		&-btn
+			width: 100%
+			background: $active
+			border: none
+			outline: none
+			color: #ffffff
+			font-family: "LatoBold"
+			font-size: 12px
+			text-transform: uppercase
+			text-align: left
+			margin-top: 30px
+			cursor: pointer
+			display: flex
+			align-items: center
+			justify-content: space-between
+			transition: all .5s ease
+			padding: 0 18px 0 0
+			&:after
+				content: attr(data-text)
+				position: absolute
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+				opacity: 0
+				color: #bbcbf2
+				transform: translate3d(0, 25%, 0)
+				transition: transform 0.3s, opacity 0.3s
+				transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+				padding: 18px 28px
+			&:hover
+				background: $accent
+				.hover-span
+					opacity: 0
+					transform: translate3d(0, -25%, 0)
+				&:after
+					opacity: 1
+					transform: translate3d(0, 0, 0)
+
+	&-subtitle
+		margin-bottom: 35px
+	&-description
+		color: #4a505c
+		font-family: "LatoBold"
+		font-size: 16px
+		margin-bottom: 25px
+	&-video
+		height: 420px
+		position: relative
+		cursor: pointer
+		transform: translateX(-100%)
+	&-play
+		width: 50px
+		height: 50px
+		background: $active
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		&-img
+			width: 14px
+			height: 14px
+.bg_video
+	position: relative
+	&:before
+		position: absolute
+		content: ''
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		background: rgba(39, 53, 85, 0.6)
+.label
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: flex-start
+	position: relative
+	padding: 7px 0
+	&-text
+		color: #acb6cd
+		font-size: 14px
+		transition: color .5s ease
+		&.active
+			color: $active
+	&-check
+		margin: 0
+		position: absolute
+		opacity: 0
+		top: 50%
+		left: 0
+		transform: translateY(-50%)
+	&-checkbox
+		width: 14px
+		height: 14px
+		background-color: rgba(255, 255, 255, 0.1)
+		margin-right: 45px
+		position: relative
+		&:before
+			position: absolute
+			background: $active url(../img/checked.svg) no-repeat center
+			background-size: 8px 6px
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			content: ''
+			opacity: 0
+			transition: opacity .5s ease
+.label-check:checked ~ .label-checkbox:before
+	opacity: 1
+.why
+	padding: 85px 0 115px
+	margin: 0 110px
+	position: relative
+	&-line
+		position: absolute
+		width: 0
+		height: 1px
+		background: #efecec
+		left: 0
+		bottom: 0
+	&-flex
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+	&-right
+		width: 575px
+		flex-shrink: 0
+	&-left
+		width: 300px
+.percent
+	display: flex
+	justify-content: space-between
+	padding: 135px 105px 110px
+	&-item
+		width: 205px
+		&:first-child
+			width: 240px
+	&-top
+		color: $accent
+		font-family: "GothamProBold"
+		font-size: 110px
+		line-height: 82px
+		display: flex
+		align-items: flex-start
+		margin-left: -8px
+		&_end
+			align-items: flex-end
+	&-percent
+		font-size: 64px
+		line-height: 48px
+		&_sm
+			font-size: 50px
+			line-height: 36px
+	&-text
+		color: $dark
+		font-size: 20px
+		margin-top: 30px
+.third
+	position: relative
+	&-overlay
+		width: 0
+		height: calc(100% - 200px)
+		top: 100px
+		left: 0
+		background: #1c2435
+		position: absolute
+		z-index: -1
+	&-block
+		&-top
+			background: #273555
+			text-align: center
+			padding: 105px 0 100px
+	&-text
+		color: rgba(254, 254, 255, 0.6)
+		font-family: "LatoItalic"
+		font-size: 16px
+		line-height: 23.91px
+		width: 575px
+		margin: 40px auto 0
+	&-list
+		display: flex
+		justify-content: space-between
+		margin-top: 105px
+		padding: 0 100px
+	&-item
+		width: calc(100% / 3)
+		position: relative
+		&-line
+			position: absolute
+			width: 2px
+			height: 20px
+			background-color: $active
+			right: 0
+			top: 30px
+		&-number
+			color: #ffffff
+			font-family: "GothamProBlack"
+			font-size: 68px
+			margin-bottom: 20px
+		&-text
+			color: #ffffff
+			font-size: 16px
+			max-width: 280px
+			margin: 10px auto 0
+	&-btn
+		margin-top: 85px
+.table
+	background: $dark
+	display: flex
+	justify-content: flex-start
+	padding: 110px 0 60px
+	&-left
+		width: 315px
+		flex-shrink: 0
+		padding-left: 60px
+	&-right
+		width: calc(100% - 315px)
+		display: flex
+		position: relative
+	&-list
+		margin: 40px 0 0 -60px
+	&-item
+		color: #ffffff
+		font-family: "LatoBold"
+		font-size: 12px
+		text-transform: uppercase
+		padding: 16px 0 16px 60px
+		cursor: pointer
+		position: relative
+		z-index: 2
+		overflow: hidden
+		border-left: 4px solid transparent
+		transition: border-color 1s ease
+		&:before
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background: linear-gradient(to right, #1c2435 0%, $dark 100%)
+			content: ''
+			z-index: -1
+			transform: translateX(-100%)
+			transition: all 1s ease
+		&:hover, &.active
+			border-color: $active
+		&.active:before
+			transform: translateX(0)
+	&-column
+		width: calc(100% / 12)
+		&-span
+			transform: translateX(30px)
+			display: inline-block
+			opacity: 0
+		&-vertical
+			height: 0
+			width: 1px
+			background: $active
+			top: 0
+			right: 0
+			position: absolute
+		&-title
+			color: #ffffff
+			font-family: "LatoBlack"
+			font-size: 14px
+			text-transform: uppercase
+			height: 170px
+			//border-right: 1px solid $active
+			writing-mode: vertical-rl
+			transform: rotate(180deg)
+			width: 100%
+			padding-right: 13px
+			position: relative
+		&-drop
+			margin-top: 20px
+			position: relative
+			//border-left: 1px solid rgba(255, 255, 255, 0.5)
+		&-item
+			//border-bottom: 1px solid rgba(255, 255, 255, 0.5)
+			padding: 15px
+			height: 80px
+			&:last-child
+				border-bottom: none
+		&-date
+			color: #fefefe
+			font-family: "LatoBlack"
+			font-size: 16px
+			text-transform: uppercase
+		&-day
+			color: rgba(255, 255, 255, 0.5)
+			font-family: "LatoBlack"
+			font-size: 9px
+			text-transform: uppercase
+			margin-top: 8px
+		&-path
+			color: #838fa6
+			font-family: "LatoBlack"
+			font-size: 9px
+			text-transform: uppercase
+.fourth
+	padding: 105px 0 0
+	&-flex
+		display: flex
+		justify-content: space-between
+	&-left
+		width: 440px
+		padding-left: 110px
+	&-right
+		width: 685px
+		padding-right: 110px
+	&-text
+		margin-bottom: 25px
+	&-list
+		margin-top: 90px
+		&-rect
+			fill: #bbbfc7
+			transition: fill .5s ease
+		&-svg
+			position: absolute
+			top: 40px
+			left: 30px
+	&-item
+		background: #f7f7f8
+		display: flex
+		flex-direction: column
+		text-decoration: none
+		padding: 40px 40px 30px 30px
+		width: 290px
+		position: relative
+		margin-bottom: 40px
+		box-shadow: 5px 30px 40px transparent
+		transition: all .5s ease
+		&:hover
+			background-color: $active
+			box-shadow: 5px 30px 40px rgba(0, 0, 0, 0.1)
+			.fourth-list-rect
+				fill: #ffffff
+			.fourth-item-title, .fourth-item-text
+				color: #ffffff
+		&-title
+			color: $dark
+			font-family: "LatoBlack"
+			font-size: 18px
+			margin-top: 27px
+			transition: color .5s ease
+		&-text
+			color: #707378
+			font-size: 14px
+			line-height: 20px
+			margin-top: 20px
+			transition: color .5s ease
+	&-line
+		margin-top: 100px
+	&-sliders
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		margin-top: 90px
+		&-left
+			width: 486px
+			position: relative
+			padding-bottom: 96px
+		&-right
+			width: 794px
+		&-block
+			padding: 0 30px 100px 110px
+			max-height: 231px
+	&-slider
+		&_second
+			height: 530px
+
+.fourth-btn_back
+	background: $dark
+.fifth
+	background: $dark
+	margin-top: -96px
+	padding: 200px 0 100px
+	&-list
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		padding: 0 40px
+	&-item
+		width: 320px
+		&-title
+			color: #ffffff
+			font-size: 36px
+			font-weight: 400
+			line-height: 35.87px
+			font-family: "GothamProBlack"
+			letter-spacing: -0.5px
+		&-description
+			color: #ffffff
+			font-family: "LatoBoldItalic"
+			font-size: 14px
+			margin-top: 40px
+		&-text
+			color: #a8aeba
+			font-family: "LatoItalic"
+			font-size: 14px
+			line-height: 23.91px
+			margin-top: 30px
+.footer
+	position: relative
+	padding: 80px 0 30px
+	&-overlay
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		position: absolute
+		background: #283656
+		z-index: -1
+	&-list
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+	&-link
+		display: block
+		width: 205px
+	&-left
+		margin-right: 20.3%
+		flex-shrink: 0
+		&-text
+			color: #97a0b1
+			font-family: "LatoBold"
+			font-size: 14px
+			line-height: 23.91px
+			margin-top: 5px
+	&-title
+		color: rgba(255, 255, 255, 0.5)
+		font-family: "LatoBold"
+		font-size: 12px
+		line-height: 23.91px
+		text-transform: uppercase
+		margin-bottom: 20px
+	&-text
+		color: #ffffff
+		font-family: "LatoBlack"
+		font-size: 14px
+		line-height: 23.91px
+	&-center
+		margin-right: 12.5%
+	&-right
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+	&-phone
+		padding: 5px 0 5px 30px
+		color: #ffffff
+		font-family: "LatoBold"
+		font-size: 16px
+		line-height: 23.91px
+		text-decoration: none
+		background: url(../img/phone2.svg) no-repeat left center
+		background-size: 16px 16px
+	&-bottom
+		position: relative
+		padding-top: 30px
+		margin-top: 45px
+		&-flex
+			display: flex
+			align-items: center
+			justify-content: space-between
+		&-line
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 1px
+			background: rgba(102, 110, 129, 0.1)
+		&-text
+			color: #97a0b1
+			font-family: "LatoBold"
+			font-size: 14px
+			line-height: 23.91px
+			display: flex
+			align-items: center
+			justify-content: flex-start
+		&-link
+			color: #97a0b1
+			font-family: "LatoBold"
+			font-size: 14px
+			line-height: 23.91px
+			margin-left: 10px
+		&-img
+			width: 130px
+
+.social
+	display: flex
+	justify-content: flex-start
+	margin-top: 25px
+	&-link
+		width: 46px
+		height: 46px
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-right: 4px
+		background: rgba(62, 74, 103, 0.4)
+		transition: background-color .5s ease
+		&:hover
+			background: $active
+.page-line
+	padding: 35px 0
+	&-item
+		font-size: 13px
+		color: #878c97
+		text-decoration: none
+		position: relative
+		padding-right: 17px
+		&:after
+			width: 2px
+			height: 2px
+			background: #878c97
+			border-radius: 50%
+			content: ''
+			position: absolute
+			top: 5px
+			right: 5px
+		&:last-child
+			color: #bdbdbd
+			&:after
+				display: none
+.schedule
+	&-flex
+		display: flex
+		justify-content: space-between
+	&-left
+		width: 486px
+	&-right
+		width: 794px
+	&-block
+		padding: 0 110px 20px 110px
+	&-text
+		margin-top: 30px
 
 @import "media" // Всегда в конце
