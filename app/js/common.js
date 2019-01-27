@@ -65,210 +65,161 @@ $(document).ready(function () {
         asNavFor: '.fourth-slider_first'
     });
     $('.fourth-btn_next').click(function() {
-        $('.fourth-slider_second').slick('slickNext')
-    });
-    $('.fourth-btn_back').click(function() {
         $('.fourth-slider_second').slick('slickPrev')
     });
+    $('.fourth-btn_back').click(function() {
+        $('.fourth-slider_second').slick('slickNext')
+    });
 
+    //Анимации
+    function gsapTop() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapTop').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).height();
+            console.log(animationDelay);
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {y: -position},
+                {y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapWidth() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapWidth').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 1;
+            console.log(animationDelay);
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {width: 0},
+                {width: "100%", ease: Power4.easeOut, delay: animationDelay}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapHeight() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapHeight').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            console.log(animationDelay);
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {height: 0},
+                {height: "100%", ease: Power4.easeOut, delay: animationDelay}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapFade() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapFade').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            console.log(animationDelay);
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0},
+                {opacity: 1, ease: Power4.easeOut, delay: animationDelay}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapFadeTop() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapFadeTop').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 1;
+            var position = $(this).height();
+            console.log(animationDelay);
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0, y: position},
+                {opacity: 1, y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapSlideInLeft() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapSlideInLeft').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).width();
+
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {x: -position},
+                {x: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapFadeInLeft() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter"}});
+
+        $('.gsapFadeInLeft').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).width();
+
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {x: -position, opacity: 0},
+                {x: 0, opacity: 1, ease: Power4.easeOut, delay: animationDelay}, '=-1'
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapUp() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onCenter"}});
+
+        $('.gsapUp').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.1;
+            var position = $(this).height() * 2;
+            console.log(animationDelay);
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {y: position},
+                {y: 0, ease: Power4.ease, delay: animationDelay, force3D:true}
+            );
+            var trigg = this.parentNode;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    gsapTop();
+    gsapWidth();
+    gsapHeight();
+    gsapFade();
+    gsapSlideInLeft();
+    gsapFadeTop();
+    gsapFadeInLeft();
+    gsapUp()
 
 });
-//Анимации
-if (TweenMax) {
-    function gsapTop(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapTop").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        var i;
-
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: Power4.easeOut,
-                y: 0,
-                // transform: "translateY(0%)",
-                delay: animationDelay
-            });
-        }
-
-    }
-    function gsapWidth(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapWidth").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        var i;
-
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: Power4.easeOut,
-                width: "100%",
-                // transform: "translateY(0%)",
-                delay: animationDelay
-            });
-        }
-
-    }
-    function gsapHeight(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapHeight").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        var i;
-
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: Power4.easeOut,
-                height: "100%",
-                // transform: "translateY(0%)",
-                delay: animationDelay
-            });
-        }
-
-    }
-    function gsapFade(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapFade").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        var i;
-
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: Power4.easeOut,
-                opacity: 1,
-                delay: animationDelay
-            });
-        }
-
-    }
-    function gsapFadeTop(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapFadeTop").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        var i;
-
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: "Power4.easeOut",
-                opacity: 1,
-                y: 0,
-                delay: animationDelay
-            });
-        }
-
-    }
-    function gsapSlideInLeft(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapSlideInLeft").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        // Animation Settings
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: "Power4.easeOut",
-                transform: "translateX(0)",
-                delay: animationDelay
-            });
-        }
-    }
-    function gsapFadeInLeft(el) {
-        if (el) {
-            var el = el;
-        } else {
-            var el = $(".gsapFadeInLeft").not(".gsapScroll");
-        }
-        // Element state prior to animation
-        // Animation Settings
-        for (i = 0; i < $(el).length; i++) {
-            var animationDelay = $(el).eq(i).data("delay");
-            var animationDuration = $(el).eq(i).data("duration") || 1;
-
-            TweenMax.staggerTo($(el).eq(i), animationDuration, {
-                ease: "Power4.easeOut",
-                transform: "translateX(0)",
-                opacity: "1",
-                delay: animationDelay
-            });
-        }
-    }
-    // Run animation on page load
-    $(function() {
-        gsapTop();
-        gsapWidth();
-        gsapHeight();
-        gsapFade();
-        gsapFadeTop();
-        gsapSlideInLeft();
-        gsapFadeInLeft();
-    });
-    function gsapScroll(el) {
-        var className = "";
-        $.each(el.attr("class").split(/\s+/), function(i, name) {
-            if (name.indexOf("gsap") > -1) {
-                className = name;
-                window[name](el);
-
-            }
-        });
-    }
-
-    // TweenMax on Scroll
-    $(function() {
-        // Hide all gsapScroll elements
-        // $(".gsapScroll").css({
-        //     opacity: "0"
-        // });
-        /* Every time the window is scrolled ... */
-        $(window).scroll(function() {
-            /* Check the location of each desired element */
-            $(".gsapScroll").each(function(q) {
-                if ($(window).width() < 960) {
-                    var bottom_of_object = $(this).offset().top + 200;
-                } else {
-                    var bottom_of_object = $(this).offset().top;
-                }
-                var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-                /* If the object is completely visible in the window, run the GSAP Scroll function */
-                if (bottom_of_window > bottom_of_object) {
-                    var item = $(this);
-                    // Remove gsapScroll class
-                    $(item).removeClass("gsapScroll");
-                    gsapScroll(item);
-                }
-            });
-        });
-    });
-}

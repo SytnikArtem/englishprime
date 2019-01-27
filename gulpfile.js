@@ -54,7 +54,11 @@ gulp.task('libs-js', function(){
       'app/libs/slick-carousel/slick/slick.min.js',
       'app/libs/masonry-layout/dist/masonry.pkgd.min.js',
       'app/libs/NumScroller.js',
-      'app/libs/TweenMax.min.js'
+      'app/libs/TweenMax.min.js',
+      'app/libs/ScrollMagic.min.js',
+      'app/libs/animation.gsap.js',
+      'app/libs/addIndicators.min.js'
+
       // 'app/libs/select/ddslick.js',
       // 'app/libs/wow/dist/wow.min.js',
       // 'app/libs/jquery-ui.js',

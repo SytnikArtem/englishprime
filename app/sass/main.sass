@@ -90,6 +90,8 @@ img
 	line-height: 43.84px
 	&_white
 		color: #ffffff
+	&_active
+		color: $active
 .active-color
 	color: $active
 .hidden
@@ -97,23 +99,21 @@ img
 	display: inline-block
 .gsapTop
 	display: inline-block
-	transform: translateY(-100%)
 .gsapFade
 	opacity: 0
-.gsapFadeTop
-	opacity: 0
-	transform: translateY(100%)
-	display: block
 .line
 	width: 70px
 	height: 2px
 	margin-top: 40px
 	display: inline-block
+	&_schedule
+		margin-top: 20px
 	&-overlay
 		width: 0
 		height: 100%
 		background-color: $dark
 		opacity: 0.1
+		display: block
 		&_dark
 			opacity: 1
 		&_percent
@@ -124,7 +124,7 @@ img
 .text
 	color: #56585e
 	font-size: 16px
-	line-height: 23.91px
+	line-height: 24px
 .slick-slide
 	outline: none
 .accent-text
@@ -136,14 +136,45 @@ img
 	font-family: "LatoBold"
 	font-size: 12px
 	text-transform: uppercase
-	display: inline-block
-	padding: 20px 32px
 	text-decoration: none
 	background: $active
 	cursor: pointer
+	width: 100%
+	background: $active
+	text-align: left
+	display: flex
+	align-items: center
+	justify-content: space-between
+	transition: all .5s ease
+	padding: 0 18px 0 0
+	position: relative
+	overflow: hidden
+	&:after
+		content: attr(data-text)
+		position: absolute
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		opacity: 0
+		color: #bbcbf2
+		transform: translate3d(0, 25%, 0)
+		transition: transform 0.3s, opacity 0.3s
+		transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+		padding: 18px 28px
+	&:hover
+		background: $accent
+		.hover-span
+			opacity: 0
+			transform: translate3d(0, -25%, 0)
+		&:after
+			opacity: 1
+			transform: translate3d(0, 0, 0)
 .arrow-svg
 	width: 7px
 	height: 10px
+	position: relative
+	z-index: 2
 .drop-line
 	position: absolute
 	width: 1px
@@ -465,7 +496,8 @@ img
 .hover-span
 	transition: transform 0.3s, opacity 0.3s
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
-	padding: 18px 28px
+	padding: 18px 28px 18px 28px
+	width: 100%
 .second
 	&-flex
 		display: flex
@@ -520,43 +552,7 @@ img
 			font-size: 14px
 			padding: 30px 0 25px
 		&-btn
-			width: 100%
-			background: $active
-			border: none
-			outline: none
-			color: #ffffff
-			font-family: "LatoBold"
-			font-size: 12px
-			text-transform: uppercase
-			text-align: left
 			margin-top: 30px
-			cursor: pointer
-			display: flex
-			align-items: center
-			justify-content: space-between
-			transition: all .5s ease
-			padding: 0 18px 0 0
-			&:after
-				content: attr(data-text)
-				position: absolute
-				width: 100%
-				height: 100%
-				top: 0
-				left: 0
-				opacity: 0
-				color: #bbcbf2
-				transform: translate3d(0, 25%, 0)
-				transition: transform 0.3s, opacity 0.3s
-				transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
-				padding: 18px 28px
-			&:hover
-				background: $accent
-				.hover-span
-					opacity: 0
-					transform: translate3d(0, -25%, 0)
-				&:after
-					opacity: 1
-					transform: translate3d(0, 0, 0)
 
 	&-subtitle
 		margin-bottom: 35px
@@ -569,7 +565,6 @@ img
 		height: 420px
 		position: relative
 		cursor: pointer
-		transform: translateX(-100%)
 	&-play
 		width: 50px
 		height: 50px
@@ -730,12 +725,34 @@ img
 			max-width: 280px
 			margin: 10px auto 0
 	&-btn
-		margin-top: 85px
+		margin: 85px auto 0
+		max-width: 145px
+		text-align: center
+		padding: 0
 .table
 	background: $dark
 	display: flex
 	justify-content: flex-start
 	padding: 110px 0 60px
+	&_white
+		background: transparent
+		padding-bottom: 40px
+		.table-column-title
+			color: $active
+		.drop-line, .table-line
+			background: rgba(39, 53, 85, 0.1)
+		.table-item
+			color: $dark
+		.table-item:before
+			background: linear-gradient(to right, #f7f7f8 0%, #ffffff 100%)
+		.table-column-date
+			color: #273555
+		.table-column-day
+			color: #273555
+		.table-column-path
+			color: #7381a1
+		.table-list
+			margin-top: 0
 	&-left
 		width: 315px
 		flex-shrink: 0
@@ -857,6 +874,7 @@ img
 		margin-bottom: 40px
 		box-shadow: 5px 30px 40px transparent
 		transition: all .5s ease
+		overflow: hidden
 		&:hover
 			background-color: $active
 			box-shadow: 5px 30px 40px rgba(0, 0, 0, 0.1)
@@ -887,8 +905,10 @@ img
 			width: 486px
 			position: relative
 			padding-bottom: 96px
+			overflow: hidden
 		&-right
 			width: 794px
+			overflow: hidden
 		&-block
 			padding: 0 30px 100px 110px
 			max-height: 231px
@@ -899,9 +919,17 @@ img
 .fourth-btn_back
 	background: $dark
 .fifth
-	background: $dark
+	position: relative
 	margin-top: -96px
 	padding: 200px 0 100px
+	&-overlay
+		position: absolute
+		width: 0
+		height: 100%
+		left: 0
+		top: 0
+		background: $dark
+		z-index: -1
 	&-list
 		display: flex
 		align-items: flex-start
@@ -930,6 +958,15 @@ img
 .footer
 	position: relative
 	padding: 80px 0 30px
+	&:before
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		z-index: -2
+		background: #222D40
+		content: ''
 	&-overlay
 		width: 100%
 		height: 100%
@@ -1057,9 +1094,195 @@ img
 		width: 486px
 	&-right
 		width: 794px
+		margin-top: -10px
 	&-block
-		padding: 0 110px 20px 110px
+		padding: 0 110px 50px 110px
 	&-text
 		margin-top: 30px
+	&-bottom
+		position: relative
+		padding: 50px 110px
+		&-overlay
+			background: #f7f7f8
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			z-index: -1
+		&-title
+			color: #696d74
+			font-family: "GothamProBold"
+			font-size: 18px
+			padding: 10px 10px 10px 40px
+			margin-bottom: 10px
+			&_first
+				background: url(../img/calendar.svg) no-repeat left center
+				background-size: 22px 20px
+			&_second
+				background: url(../img/time.svg) no-repeat left center
+				background-size: 22px 22px
+				margin-bottom: 25px
+		&-text
+			color: #273555
+			font-size: 16px
+			line-height: 33.87px
+			&_span
+				color: #9a9da8
+				font-size: 14px
+				padding-left: 5px
+		&-row
+			margin-bottom: 30px
+			padding-bottom: 25px
+			position: relative
+			&:last-child
+				margin-bottom: 15px
+		&-line
+			position: absolute
+			left: 0
+			bottom: 0
+			width: 100%
+			height: 1px
+			background: #eeeeee
+		&-item
+			display: flex
+			align-items: flex-start
+			justify-content: flex-start
+			margin: 18px 0
+			&:last-child
+				margin-bottom: 5px
+		&-date
+			color: $active
+			font-family: "LatoBold"
+			font-size: 13px
+			margin: 3px 10px 0 0
+			white-space: nowrap
+			width: 170px
+		&-day
+			color: #273555
+			padding-left: 12px
+		&-group
+			color: #56585e
+			font-size: 16px
+		&-description
+			color: #7f8187
+			font-size: 13px
+			margin-top: 5px
+		&-lesson
+			color: #9599a1
+			font-family: "LatoBold"
+			font-size: 14px
+			line-height: 23.91px
+			max-width: 480px
+		&-link
+			color: $accent
+			text-decoration: underline
+	&-content
+		&-text
+			color: #80838c
+			font-size: 14px
+			line-height: 23.91px
+			padding-left: 315px
+	&-question
+		padding: 80px 0 100px
+		&-flex
+			display: flex
+			justify-content: flex-start
+			align-items: flex-start
+			padding: 0 110px
+		&-left
+			width: 485px
+			flex-shrink: 0
+		&-right
+			width: 585px
+		&-text
+			margin-bottom: 45px
+		&-description
+			color: #aaaeb9
+			font-family: "LatoBold"
+			font-size: 12px
+			line-height: 23.91px
+			text-transform: uppercase
+		&-btn
+			margin-top: 10px
+			max-width: 300px
+	&-contacts
+		display: flex
+		justify-content: space-between
+		margin-bottom: 40px
+		&-left, &-right
+			width: 50%
+		&-title
+			color: #aaaeb9
+			font-family: "LatoBold"
+			font-size: 12px
+			line-height: 23.91px
+			text-transform: uppercase
+			margin-bottom: 10px
+		&-phone
+			color: $dark
+			font-family: "LatoBold"
+			font-size: 16px
+			line-height: 23.91px
+			text-decoration: none
+		&-mail
+			color: $accent
+			font-family: "LatoBold"
+			font-size: 16px
+			line-height: 23.91px
+			text-decoration: underline
+.courses
+	padding: 0 0 100px
+	&-top
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+	&-btn
+		width: 400px
+		margin-top: 10px
+	&-left
+		width: 655px
+		position: relative
+		height: 340px
+		&-overlay
+			position: absolute
+			left: 0
+			top: 0
+			height: 100%
+			width: 100%
+			background: #eff1f5
+			z-index: -1
+	&-img
+		position: absolute
+		bottom: 0
+		left: 50%
+		transform: translateX(-50%)
+		&_right
+			left: initial
+			transform: none
+			right: 0
+		&_top
+			bottom: 10px
+	&-right
+		width: 525px
+		&-btn
+			max-width: 195px
+			margin-top: 40px
+			background: $accent
+			.hover-span
+				padding-right: 8px
+			&:after
+				background: $active
+				color: #ffffff
 
+	&-row
+		display: flex
+		justify-content: space-between
+		margin-top: 200px
+		&_reverse
+			flex-direction: row-reverse
+	&-subtitle
+		letter-spacing: -1.5px
+	&-text
+		margin-top: 30px
 @import "media" // Всегда в конце
