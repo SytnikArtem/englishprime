@@ -70,6 +70,22 @@ $(document).ready(function () {
     $('.fourth-btn_back').click(function() {
         $('.fourth-slider_second').slick('slickNext')
     });
+    //Кнопка читать больше (отзывы на интевсивных курсах)
+
+    $('.course-reviews-more').click(function (e) {
+        e.preventDefault();
+        var thisHeight = $(this).parent().find('.course-reviews-text').height();
+        console.log(thisHeight);
+        $(this).parent().find('.course-reviews-overflow').toggleClass('active');
+        if($(this).parent().find('.course-reviews-overflow').hasClass('active')) {
+            $(this).parent().find('.course-reviews-overflow').height(thisHeight);
+            $(this).text('Скрыть');
+        }
+        else {
+            $(this).parent().find('.course-reviews-overflow').height(120);
+            $(this).text('Читать больше');
+        }
+    });
 
     //Анимации
     function gsapTop() {

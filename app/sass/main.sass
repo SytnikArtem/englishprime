@@ -104,8 +104,12 @@ img
 .line
 	width: 70px
 	height: 2px
-	margin-top: 40px
+	margin-top: 35px
 	display: inline-block
+	&_sale
+		margin-top: 15px
+	&_car
+		margin-top: 0
 	&_schedule
 		margin-top: 20px
 	&-overlay
@@ -140,7 +144,6 @@ img
 	background: $active
 	cursor: pointer
 	width: 100%
-	background: $active
 	text-align: left
 	display: flex
 	align-items: center
@@ -429,14 +432,17 @@ img
 	background: #f5f7fa
 	padding: 115px 0 0
 	position: relative
+	&_courses
+		background: #ffffff
+		padding-top: 95px
 	&-title
-		height: 165px
+		//height: 165px
 		&_second
-			position: relative
-			top: -30px
+			display: block
+			margin-top: -30px
 		&_third
-			position: relative
-			top: -60px
+			display: block
+			margin-top: -20px
 	&-flex
 		display: flex
 		align-items: flex-start
@@ -463,6 +469,8 @@ img
 		margin-top: 35px
 		color: #4a505c
 		font-size: 18px
+		&_big
+			max-width: 335px
 	&-btns
 		width: 192px
 		height: 96px
@@ -502,6 +510,10 @@ img
 	&-flex
 		display: flex
 		justify-content: space-between
+	&-text
+		margin-bottom: 25px
+		&:last-child
+			margin-bottom: 0
 	&-left
 		width: 486px
 		flex-shrink: 0
@@ -561,6 +573,8 @@ img
 		font-family: "LatoBold"
 		font-size: 16px
 		margin-bottom: 25px
+		&_big
+			margin-bottom: 50px
 	&-video
 		height: 420px
 		position: relative
@@ -734,6 +748,12 @@ img
 	display: flex
 	justify-content: flex-start
 	padding: 110px 0 60px
+	&_courses
+		padding-top: 0
+		.table-left
+			padding-left: 0
+		.table-list
+			margin-left: 0
 	&_white
 		background: transparent
 		padding-bottom: 40px
@@ -751,8 +771,6 @@ img
 			color: #273555
 		.table-column-path
 			color: #7381a1
-		.table-list
-			margin-top: 0
 	&-left
 		width: 315px
 		flex-shrink: 0
@@ -763,6 +781,8 @@ img
 		position: relative
 	&-list
 		margin: 40px 0 0 -60px
+		&_white
+			margin-top: 0
 	&-item
 		color: #ffffff
 		font-family: "LatoBold"
@@ -846,9 +866,14 @@ img
 	&-flex
 		display: flex
 		justify-content: space-between
+		&_start
+			align-items: flex-start
 	&-left
 		width: 440px
 		padding-left: 110px
+		&_course-reviews
+			width: 540px
+			padding-left: 0
 	&-right
 		width: 685px
 		padding-right: 110px
@@ -1205,7 +1230,7 @@ img
 			text-transform: uppercase
 		&-btn
 			margin-top: 10px
-			max-width: 300px
+			max-width: 310px
 	&-contacts
 		display: flex
 		justify-content: space-between
@@ -1285,4 +1310,170 @@ img
 		letter-spacing: -1.5px
 	&-text
 		margin-top: 30px
+.car
+	position: relative
+	z-index: 2
+	margin-top: -50px
+	padding-bottom: 20px
+	&-list
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+		padding: 0 30px 0 110px
+		margin-top: 30px
+	&-item
+		width: 150px
+		margin-right: 40px
+	&-img
+		max-width: 992px
+		margin: -95px 0 0 40px
+	&-text
+		color: #273555
+		font-size: 16px
+		margin-top: 15px
+	&-number
+		color: #264796
+		font-family: "GothamProBlack"
+		font-size: 68px
+		line-height: 1
+		&-small
+			font-size: 32px
+			line-height: 1
+.list
+	margin-bottom: 25px
+	&-item
+		padding: 5px 5px 5px 60px
+		color: #56585e
+		font-family: "LatoBold"
+		font-size: 16px
+		line-height: 24px
+		position: relative
+		&:before
+			position: absolute
+			width: 4px
+			height: 4px
+			background-color: #ccced3
+			border-radius: 50%
+			content: ''
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
+.sale
+	padding: 70px 0 50px
+	&-list
+		display: flex
+		justify-content: space-between
+	&-item
+		width: calc(50% - 20px)
+		border: 2px solid #f5f7fa
+		padding: 60px 60px
+		display: flex
+		justify-content: space-between
+		&-left, &-right
+			width: 50%
+		&-right
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+		&-number
+			color: #264796
+			font-family: "GothamProBold"
+			font-size: 110px
+			line-height: 0.7
+			display: flex
+			align-items: flex-start
+			&_small
+				font-size: 60px
+		&-text
+			color: #264796
+			font-family: "GothamProBlack"
+			font-size: 32px
+			line-height: 59.78px
+		&-block
+			margin-left: -10px
+	&-price
+		color: #e31d23
+		font-family: "GothamProBlack"
+		font-size: 32px
+		margin-top: 20px
+		&_small
+			font-size: 16px
+	&-info
+		margin-top: -5px
+		&-item
+			padding-left: 15px
+			margin-bottom: 20px
+			color: #666f83
+			font-size: 16px
+			position: relative
+			&:before
+				width: 4px
+				height: 4px
+				background-color: #232d42
+				opacity: 0.2
+				border-radius: 50%
+				left: 0
+				top: 5px
+				content: ''
+				position: absolute
+.course-reviews
+	padding: 50px 0 110px
+	&-btn
+		width: 145px
+		background-color: #f5f7fa
+		color: #646a77
+		.hover-span
+			padding: 18px 18px 18px 18px
+		&:hover
+			background-color: #fafcff
+		&:after
+			padding: 18px
+	&-list
+		display: flex
+		justify-content: space-between
+		margin-top: 60px
+	&-item
+		width: calc(33.33% - 26px)
+	&-content
+		background-color: #f5f7fa
+		padding: 35px 40px
+	&-object
+		width: 100%
+		height: 230px
+	&-img
+		width: 100%
+		height: 100%
+		object-fit: cover
+	&-name
+		color: #232d42
+		font-family: "LatoBlack"
+		font-size: 18px
+		line-height: 24px
+	&-prof
+		color: #264796
+		font-family: "LatoBold"
+		font-size: 14px
+		margin: 5px 0 20px
+	&-text
+		color: #707378
+		font-family: "LatoItalic"
+		font-size: 14px
+		line-height: 24px
+		letter-spacing: 0.3px
+	&-overflow
+		height: 120px
+		overflow: hidden
+		transition: height .5s ease
+	&-more
+		color: #747d94
+		font-family: "LatoBold"
+		font-size: 14px
+		text-decoration: none
+		margin-top: 20px
+		display: inline-block
+	&-date
+		color: #a4a9b8
+		font-family: "LatoBold"
+		font-size: 14px
+		margin-top: 25px
 @import "media" // Всегда в конце
