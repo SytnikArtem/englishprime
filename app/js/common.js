@@ -236,6 +236,27 @@ $(document).ready(function () {
     gsapSlideInLeft();
     gsapFadeTop();
     gsapFadeInLeft();
-    gsapUp()
+    gsapUp();
+
+    //Парадакс для флага
+    var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+    new ScrollMagic.Scene({triggerElement: "#parallax1"})
+        .setTween('.third-block-overlay', {y: "0", ease: Linear.easeNone})
+        .addTo(controller);
+    
+    //Ховер для фона (страница advanced)
+    
+    $('.advanced-btn').hover(function () {
+        $(this).closest('.advanced-item').find('.advanced-item-overlay').addClass('active');
+    },function(){
+        $(this).closest('.advanced-item').find('.advanced-item-overlay').removeClass('active');
+    });
+
+    //Логика графика (основная програма)
+
+    $('.program-graf-circle').click(function(){
+       $(this).addClass('active');
+       $(this).prevAll('.program-graf-circle').addClass("accent");
+    });
 
 });
