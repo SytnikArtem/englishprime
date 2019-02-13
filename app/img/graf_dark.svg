@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1261px" height="240px" viewBox="0 0 1261 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>bg_graf</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bg_graf">
+            <polygon id="Path" fill="#EBEEF3" points="0 240 1257 239 1257 4 1102 39 953 53 797 91 640 109 486 159 328 174 174 193 15 234"></polygon>
+            <polygon id="Path" fill="#DDE0E6" points="17.5 235.4 17 233.4 171.1 194.1 171.2 194.1 325.7 174.4 480.7 160.3 635.5 108.6 635.6 108.6 790.1 92.6 945.8 53.2 945.9 53.2 1098.5 39.3 1252.9 4 1253.3 6 1098.8 41.3 1098.8 41.3 946.1 55.2 790.5 94.6 790.4 94.6 635.9 110.6 481.1 162.3 481 162.3 325.9 176.4 171.5 196.1"></polygon>
+            <circle id="Oval" fill="#DDE0E6" cx="1257" cy="4" r="4"></circle>
+        </g>
+    </g>
+</svg>

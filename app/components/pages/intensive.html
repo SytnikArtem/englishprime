@@ -36,9 +36,9 @@
 				<div class="first-right">
 					<div class="first-right-overlay gsapWidth" data-delay="1.2" data-duration="1"></div>
 					<div class="first-right-car car">
-						<img src="img/car.png" alt="" class="car-img">
+						<img src="img/car.png" alt="" class="car-img gsapFade" data-delay="2" data-duration="8">
 						<div class="car-list">
-							<div class="car-item">
+							<div class="car-item gsapFadeTop" data-delay="1.5">
 								<p class="car-number">3<span class="car-number-small">x</span></p>
 								<div class="line line_car">
 									<div class="line-overlay line-overlay_percent gsapWidth" data-delay="1" data-duration="1"></div>
@@ -46,7 +46,7 @@
 								<p class="car-text">в 3 раза быстрее
 									обычных курсов</p>
 							</div>
-							<div class="car-item">
+							<div class="car-item gsapFadeTop" data-delay="1.5">
 								<p class="car-number">4,5</p>
 								<div class="line line_car">
 									<div class="line-overlay line-overlay_percent gsapWidth" data-delay="1" data-duration="1"></div>
@@ -54,7 +54,7 @@
 								<p class="car-text">учебных часов<br>
 									в день</p>
 							</div>
-							<div class="car-item">
+							<div class="car-item gsapFadeTop" data-delay="1.5">
 								<p class="car-number">10</p>
 								<div class="line line_car">
 									<div class="line-overlay line-overlay_percent gsapWidth" data-delay="1" data-duration="1"></div>
@@ -72,71 +72,22 @@
 		<div class="container">
 			<div class="second-flex">
 				<div class="second-left">
-					<a href="" class="second-link">
-						<span class="second-link-span gsapFadeTop" data-delay="1.5" data-duration="1">Определить нужный уровень изучения языка
-							<svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.8 105"><defs><style>.cls-1{fill:none;clip-rule:evenodd;}.cls-2{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(5 5)"><polygon class="cls-1" points="17.3 95 0 77.8 30.3 47.5 0 17.2 17.3 0 64.8 47.5 17.3 95"/></clipPath></defs><g class="cls-2"><rect fill="#ffffff" width="74.8" height="105"/></g></svg>
-						</span>
-					</a>
-					<form action="" class="second-form">
-						<h4 class="second-form-title gsapFadeTop" data-delay="0.1" data-duration="1">Запишитесь на Бесплатный Пробный Урок</h4>
-						<input type="text" class="second-form-input gsapFadeTop" data-delay="0.3" data-duration="1" placeholder="Введите Ваше Имя" required>
-						<input type="phone" class="second-form-input gsapFadeTop" data-delay="0.5" data-duration="1" placeholder="Введите ваш номер телефона" required>
-						<p class="second-form-text gsapFadeTop" data-delay="0.7" data-duration="1">Укажите удобный филиал:</p>
-						<label class="second-form-label label gsapFadeTop" data-delay="0.8" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Печерская</span>
-						</label>
-						<label class="second-form-label label gsapFadeTop" data-delay="0.9" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Площадь Льва Толстого</span>
-						</label>
-						<label class="second-form-label label gsapFadeTop" data-delay="0.95" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Оболонь</span>
-						</label>
-						<label class="second-form-label label gsapFadeTop" data-delay="1" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Университет</span>
-						</label>
-						<label class="second-form-label label gsapFadeTop" data-delay="1.05" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Олимпийская</span>
-						</label>
-						<label class="second-form-label label gsapFadeTop" data-delay="1.1" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Позняки</span>
-						</label>
-						<label class="second-form-label label gsapFadeTop" data-delay="1.15" data-duration="1">
-							<input type="radio" class="label-check" name="metro">
-							<span class="label-checkbox"></span>
-							<span class="label-text">м. Позняки</span>
-						</label>
-						<button type="submit" class="second-form-btn btn gsapFadeTop" data-delay="1" data-duration="0.5" data-text="Записаться">
-							<span class="hover-span">Записаться</span>
-							<svg class="arrow-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.8 105"><defs><style>.cls-1{fill:none;clip-rule:evenodd;}.cls-2{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(5 5)"><polygon class="cls-1" points="17.3 95 0 77.8 30.3 47.5 0 17.2 17.3 0 64.8 47.5 17.3 95"/></clipPath></defs><g class="cls-2"><rect fill="#ffffff" width="74.8" height="105"/></g></svg>
-						</button>
-					</form>
+					@import "forms.html"
 				</div>
 				<div class="second-right">
 					<div class="second-right-top">
-						<p class="second-description second-description_big gsapFadeTop" data-delay="0.5" data-duration="1">Вы будете учиться ежедневно с понедельника по пятницу с 10:00 до 15:00, и преодолеете уровень за 2 недели.</p>
-						<p class="second-text text gsapFadeTop" data-delay="0.7" data-duration="1">Если Вы никогда не изучали английский язык или же просто хотите улучшить своё владение им, то у Вас есть замечательная возможность провести майские праздники с пользой для себя!</p>
-						<p class="second-text text gsapFadeTop" data-delay="0.7" data-duration="1">Пройдя один уровень английским интенсивом, Вы:</p>
-						<ul class="list">
+						<p class="second-description second-description_big gsapFade" data-delay="0.3" data-duration="3">Вы будете учиться ежедневно с понедельника по пятницу с 10:00 до 15:00, и преодолеете уровень за 2 недели.</p>
+						<p class="second-text text gsapFade" data-delay="0.3" data-duration="3">Если Вы никогда не изучали английский язык или же просто хотите улучшить своё владение им, то у Вас есть замечательная возможность провести майские праздники с пользой для себя!</p>
+						<p class="second-text text gsapFade" data-delay="0.3" data-duration="3">Пройдя один уровень английским интенсивом, Вы:</p>
+						<ul class="list gsapFade" data-delay="0.3" data-duration="3">
 							<li class="list-item">получите новые знания и систематизируете уже существующие;</li>
 							<li class="list-item">приобретете или улучшите разговорный навык английского;</li>
 							<li class="list-item">преодолеете языковой барьер;</li>
 							<li class="list-item">улучшите навык аудирования (понимание английской речи на слух);</li>
 							<li class="list-item">увеличите словарный запас (500 новых слов за уровень)</li>
 						</ul>
-						<p class="second-text text gsapFadeTop" data-delay="0.7" data-duration="1">На уроках Вы будете последовательно проходить актуальные темы и сразу же применять полученные данные на практике:  80% времени занятий - разговорная практика!</p>
-						<p class="second-text text gsapFadeTop" data-delay="0.7" data-duration="1">Всего за 10 дней вы пройдете программу, по насыщенности равносильную 1,5 месяцам занятий. Благодаря такому насыщенному обучению и большому количеству разговорной практики прохождение интенсива аналогично погружению в англоязычную среду.<br>
+						<p class="second-text text gsapFade" data-delay="0.3" data-duration="3">На уроках Вы будете последовательно проходить актуальные темы и сразу же применять полученные данные на практике:  80% времени занятий - разговорная практика!</p>
+						<p class="second-text text gsapFade" data-delay="0.3" data-duration="3">Всего за 10 дней вы пройдете программу, по насыщенности равносильную 1,5 месяцам занятий. Благодаря такому насыщенному обучению и большому количеству разговорной практики прохождение интенсива аналогично погружению в англоязычную среду.<br>
 							Данный курс наиболее подходит людям, чей рабочий график не позволяет посещать занятия в обычном режиме, а также тем, кому нужно срочно продвинуть свой уровень.</p>
 					</div>
 				</div>
@@ -579,7 +530,7 @@
 	<section class="sale">
 		<div class="container">
 			<div class="sale-list">
-				<div class="sale-item">
+				<div class="sale-item gsapFadeTop" data-delay="0.3">
 					<div class="sale-item-left">
 						<div class="sale-item-block">
 							<p class="sale-item-number">20<span class="sale-item-number_small">%</span></p>
@@ -603,7 +554,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="sale-item">
+				<div class="sale-item gsapFadeTop" data-delay="0.4">
 					<div class="sale-item-left">
 						<div class="sale-item-block">
 							<p class="sale-item-number">10<span class="sale-item-number_small">%</span></p>
@@ -644,7 +595,7 @@
 				</a>
 			</div>
 			<div class="course-reviews-list">
-				<div class="course-reviews-item">
+				<div class="course-reviews-item gsapFadeTop" data-delay="0.3" data-duration="0.5">
 					<div class="course-reviews-object">
 						<img src="img/reviews-course1.jpg" alt="" class="course-reviews-img">
 					</div>
@@ -658,7 +609,7 @@
 						<p class="course-reviews-date">09 Jul 2018</p>
 					</div>
 				</div>
-				<div class="course-reviews-item">
+				<div class="course-reviews-item gsapFadeTop" data-delay="0.4" data-duration="0.5">
 					<div class="course-reviews-object">
 						<img src="img/reviews-course2.jpg" alt="" class="course-reviews-img">
 					</div>
@@ -672,7 +623,7 @@
 						<p class="course-reviews-date">09 Jul 2018</p>
 					</div>
 				</div>
-				<div class="course-reviews-item">
+				<div class="course-reviews-item gsapFadeTop" data-delay="0.5" data-duration="0.5">
 					<div class="course-reviews-object">
 						<img src="img/reviews-course1.jpg" alt="" class="course-reviews-img">
 					</div>

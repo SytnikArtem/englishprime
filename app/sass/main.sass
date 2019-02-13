@@ -75,8 +75,8 @@ img
 	height: auto
 .container
 	width: 100%
-	max-width: 1360px
-	padding: 0 40px
+	max-width: 1320px
+	padding: 0 20px
 	margin: 0 auto
 .nowrap
 	white-space: nowrap
@@ -84,18 +84,19 @@ img
 	color: $dark
 	font-family: "GothamProBlack"
 	font-size: 64px
-	line-height: 70px
+	line-height: 1.1
 .subtitle
 	color: $dark
 	font-family: "GothamProBlack"
 	font-size: 48px
-	line-height: 43.84px
+	line-height: 0.92
 	&_white
 		color: #ffffff
 	&_active
 		color: $active
-.active-color
-	color: $active
+	&_technique
+		max-width: 285px
+		margin-bottom: 30px
 .hidden
 	overflow: hidden
 	display: inline-block
@@ -108,6 +109,7 @@ img
 	height: 2px
 	margin-top: 35px
 	display: inline-block
+	position: relative
 	&_sale
 		margin-top: 15px
 	&_car
@@ -119,11 +121,10 @@ img
 	&-overlay
 		width: 0
 		height: 100%
-		background-color: $dark
-		opacity: 0.1
+		background-color: rgba(35, 45, 66, 0.1)
 		display: block
 		&_dark
-			opacity: 1
+			background-color: #232d42
 		&_percent
 			opacity: 1
 			background: $active
@@ -135,6 +136,8 @@ img
 	line-height: 24px
 	&_bold
 		font-family: "LatoBold"
+	&_club
+		font-size: 18px
 .slick-slide
 	outline: none
 .accent-text
@@ -179,6 +182,19 @@ img
 		&:after
 			opacity: 1
 			transform: translate3d(0, 0, 0)
+	&_white
+		background: #f5f7fa
+		color: #646a77
+		padding: 0 24px
+		.hover-span
+			padding-left: 15px
+			padding-right: 0
+		&:after
+			padding-left: 55px
+			padding-right: 0
+		&:hover
+			rect
+				fill: #ffffff
 .arrow-svg
 	width: 7px
 	height: 10px
@@ -212,6 +228,23 @@ img
 	width: 100%
 	z-index: 5
 	background: #ffffff
+	&-btn
+		width: 30px
+		height: 24px
+		position: relative
+		display: none
+		&-line
+			position: absolute
+			left: 5px
+			width: 20px
+			height: 2px
+			background: #232d42
+			&_top
+				top: 5px
+			&_bottom
+				bottom: 5px
+	&_error
+		background: transparent
 	&_main
 		background: #f5f7fa
 	&-row
@@ -264,6 +297,7 @@ img
 			transform: translate3d(0, 10px, 0)
 			transition: transform 0.3s, opacity 0.3s
 			transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
+			pointer-events: none
 		&:last-child
 			margin-right: 0
 		&-link
@@ -283,6 +317,10 @@ img
 	&-lang
 		padding-right: 15px
 		position: relative
+		&:hover
+			.header-lang-sublist
+				opacity: 1
+				pointer-events: auto
 		&:before
 			width: 9px
 			height: 6px
@@ -293,16 +331,28 @@ img
 			background: url(../img/arrow-down.svg) no-repeat center
 		&-sublist
 			position: absolute
-			width: 100%
+			width: auto
 			left: 0
-			bottom: 0
+			top: 15px
 			opacity: 0
 			pointer-events: none
+			background: #264796
+			transition: all .5s ease
+			padding: 5px 0
 		&-item
 			color: #646a77
 			font-size: 13px
 			font-weight: 700
 			cursor: pointer
+
+		&-subitem
+			color: #ffffff
+			padding: 5px 10px
+			transition: background-color .5s ease
+			&:last-child
+				margin-bottom: 0
+			&:hover
+				background: $active
 	&-right
 		display: flex
 		justify-content: space-between
@@ -397,6 +447,11 @@ img
 			align-items: flex-end
 			justify-content: flex-start
 			padding-top: 22px
+	&_error
+		.header-item, .header-lang-item, .header-enter, .header-phone
+			color: #ffffff
+		.header-item:after
+			color: $active
 .drop
 	position: relative
 	&:hover
@@ -457,15 +512,15 @@ img
 			margin-top: -15px
 	&-flex
 		display: flex
-		align-items: flex-start
 		justify-content: space-between
 		position: relative
 	&-left
-		width: 450px
+		width: 500px
 	&-right
 		width: 794px
 		position: relative
 		padding-bottom: 40px
+		flex-shrink: 0
 		&-overlay
 			width: 0
 			height: 340px
@@ -479,6 +534,9 @@ img
 		&_mastery
 			margin-top: -45px
 			padding-bottom: 0
+		&_free
+			margin-top: -80px
+			padding-bottom: 0
 		&-men
 			position: relative
 			&-img
@@ -491,10 +549,13 @@ img
 		margin-top: 35px
 		color: #4a505c
 		font-size: 18px
+		padding-bottom: 20px
 		&_big
 			max-width: 335px
 		&_bold
 			font-family: "LatoBold"
+		&_free
+			max-width: 310px
 	&-btns
 		width: 192px
 		height: 96px
@@ -530,6 +591,63 @@ img
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1)
 	padding: 18px 28px 18px 28px
 	width: 100%
+.label
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: flex-start
+	position: relative
+	padding: 7px 0
+	&-text
+		color: #acb6cd
+		font-size: 14px
+		transition: color .5s ease
+		&.active
+			color: $active
+	&-check
+		margin: 0
+		position: absolute
+		opacity: 0
+		top: 50%
+		left: 0
+		transform: translateY(-50%)
+	&-checkbox
+		width: 14px
+		height: 14px
+		background-color: rgba(255, 255, 255, 0.1)
+		margin-right: 45px
+		position: relative
+		overflow: hidden
+		&:before
+			position: absolute
+			background: $active url(../img/checked.svg) no-repeat center
+			background-size: 8px 6px
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			content: ''
+			opacity: 0
+			transition: opacity .5s ease
+		&_circle
+			border-radius: 50%
+			&:before
+				background: $active
+			&:after
+				content: ''
+				width: 6px
+				height: 6px
+				background: #ffffff
+				border-radius: 50%
+				left: 50%
+				top: 50%
+				transform: translate(-50%, -50%)
+				display: block
+				position: absolute
+				opacity: 0
+				transition: opacity .5s ease
+.label-check:checked ~ .label-checkbox:before, .label-check:checked ~ .label-checkbox:after
+	opacity: 1
 .second
 	&_mastery
 		padding-bottom: 110px
@@ -545,12 +663,16 @@ img
 		flex-shrink: 0
 		margin-top: -96px
 		position: relative
-
+		&_nomarg
+			margin-top: 0
 	&-right
 		width: 100%
 		overflow: hidden
 		&-top
 			padding: 105px 100px 110px 110px
+		&-technique
+			padding: 0 100px 110px 110px
+			margin-top: -10px
 	&-link
 		width: 100%
 		display: block
@@ -567,12 +689,32 @@ img
 	&-form
 		background: #273555
 		padding: 60px
+		display: none
+		&-back
+			color: rgba(255, 255, 255, 0.5)
+			font-family: Lato
+			font-size: 12px
+			font-weight: 700
+			text-transform: uppercase
+			text-decoration: none
+			padding-left: 20px
+			background: url(../img/arrow-back.svg) no-repeat left center
+			background-size: 7px 10px
+			margin: -20px 0 20px 0
+			display: block
+		&_first
+			display: block
 		&-title
 			color: #fefefe
 			font-family: "GothamProBlack"
 			font-size: 36px
-			line-height: 31.88px
+			line-height: 0.89
 			margin-bottom: 45px
+		&-subtitle
+			color: #ffffff
+			font-family: "LatoBold"
+			font-size: 14px
+			margin-bottom: 20px
 		&-input
 			width: 100%
 			color: #ffffff
@@ -584,16 +726,36 @@ img
 			border-radius: 0
 			padding: 16px 0
 			margin-bottom: 30px
+			&_marg
+				margin-top: 20px
+		&-file
+			display: none
+		&-label
+			&_file
+				color: rgba(255, 255, 255, 0.5)
+				font-family: "LatoBold"
+				font-size: 12px
+				text-transform: uppercase
+				display: inline-block
+				background-color: rgba(0, 0, 0, 0.1)
+				width: auto
+				padding: 10px
+				margin-bottom: 20px
+				cursor: pointer
 		&-text
 			color: #ffffff
 			font-family: "LatoBold"
 			font-size: 14px
 			padding: 30px 0 25px
+			&_file
+				padding: 10px 0 10px
 		&-btn
 			margin-top: 30px
 
 	&-subtitle
 		margin-bottom: 55px
+		&_technique
+			margin-bottom: 0
 		&_marg
 			margin-top: 30px
 		&_ielts
@@ -606,6 +768,8 @@ img
 			font-size: 20px
 			position: relative
 			top: -25px
+		&_nomarg
+			margin-bottom: 30px
 	&-description
 		color: #4a505c
 		font-family: "LatoBold"
@@ -613,8 +777,12 @@ img
 		margin-bottom: 25px
 		&_big
 			margin-bottom: 50px
+		&_technique
+			font-size: 18px
+			line-height: 24px
+			margin: 30px 0 35px
 	&-video
-		height: 420px
+		min-height: 420px
 		position: relative
 		cursor: pointer
 	&-play
@@ -642,48 +810,12 @@ img
 		top: 0
 		left: 0
 		background: rgba(39, 53, 85, 0.6)
-.label
-	width: 100%
-	display: flex
-	align-items: center
-	justify-content: flex-start
-	position: relative
-	padding: 7px 0
-	&-text
-		color: #acb6cd
-		font-size: 14px
-		transition: color .5s ease
-		&.active
-			color: $active
-	&-check
-		margin: 0
-		position: absolute
-		opacity: 0
-		top: 50%
-		left: 0
-		transform: translateY(-50%)
-	&-checkbox
-		width: 14px
-		height: 14px
-		background-color: rgba(255, 255, 255, 0.1)
-		margin-right: 45px
-		position: relative
-		&:before
-			position: absolute
-			background: $active url(../img/checked.svg) no-repeat center
-			background-size: 8px 6px
-			width: 100%
-			height: 100%
-			top: 0
-			left: 0
-			content: ''
-			opacity: 0
-			transition: opacity .5s ease
-.label-check:checked ~ .label-checkbox:before
-	opacity: 1
 .why
 	padding: 85px 110px 115px
 	position: relative
+	border-bottom: 1px solid #efecec
+	&_technique
+		padding: 105px 110px 105px
 	&-line
 		position: absolute
 		width: 0
@@ -691,6 +823,10 @@ img
 		background: #efecec
 		left: 0
 		bottom: 0
+	&-text
+		margin-bottom: 25px
+		&:last-child
+			margin-bottom: 0
 	&-flex
 		display: flex
 		align-items: flex-start
@@ -722,7 +858,7 @@ img
 		color: $accent
 		font-family: "GothamProBold"
 		font-size: 110px
-		line-height: 82px
+		line-height: 0.75
 		display: flex
 		align-items: flex-start
 		margin-left: -8px
@@ -730,10 +866,10 @@ img
 			align-items: flex-end
 	&-percent
 		font-size: 64px
-		line-height: 48px
+		line-height: 0.75
 		&_sm
 			font-size: 50px
-			line-height: 36px
+			line-height: 0.72
 	&-text
 		color: $dark
 		font-size: 20px
@@ -807,6 +943,10 @@ img
 	display: flex
 	justify-content: flex-start
 	padding: 110px 0 60px
+	&-subtitle
+		&_free
+			font-size: 40px
+			line-height: 1
 	&_courses
 		padding-top: 0
 		.table-left
@@ -838,7 +978,7 @@ img
 		width: calc(100% - 315px)
 		display: flex
 		position: relative
-	&-list
+	&-select
 		margin: 40px 0 0 -60px
 		&_white
 			margin-top: 0
@@ -924,12 +1064,26 @@ img
 	padding: 105px 0 0
 	position: relative
 	z-index: 2
+	&_post
+		padding: 15px 0 75px
+	&_club
+		padding-top: 0
+	&_technique
+		padding-top: 80px
+	&_public
+		padding-top: 60px
+	&_about
+		padding: 5px 0 70px
 	&-flex
 		display: flex
 		justify-content: space-between
 		padding: 0 110px
+		position: relative
+		z-index: 2
 		&_start
 			align-items: flex-start
+		&_fluid
+			padding: 0
 		&_advanced
 			padding: 0 110px 0 0
 			.fourth-left
@@ -941,8 +1095,18 @@ img
 		&_course-reviews
 			width: 430px
 			padding-left: 0
+		&_big
+			width: 100%
+		&_club
+			width: 450px
 	&-right
 		width: 575px
+		&_club
+			margin: 15px 110px 0 0
+		&_post
+			flex-shrink: 0
+			margin-left: 125px
+			width: 330px
 	&-text
 		margin-bottom: 25px
 	&-list
@@ -1032,7 +1196,7 @@ img
 			color: #ffffff
 			font-size: 36px
 			font-weight: 400
-			line-height: 35.87px
+			line-height: 1
 			font-family: "GothamProBlack"
 			letter-spacing: -0.5px
 		&-description
@@ -1058,6 +1222,13 @@ img
 		z-index: -2
 		background: #222D40
 		content: ''
+	&_error
+		position: absolute
+		left: 0
+		bottom: 0
+		width: 100%
+		&:before
+			display: none
 	&-overlay
 		width: 100%
 		height: 100%
@@ -1180,7 +1351,8 @@ img
 			border-radius: 50%
 			content: ''
 			position: absolute
-			top: 5px
+			top: 50%
+			transform: translateY(-50%)
 			right: 5px
 		&:last-child
 			color: #bdbdbd
@@ -1415,13 +1587,17 @@ img
 			font-size: 32px
 			line-height: 1
 .list
+	&_big
+		margin-top: -7px
+		.list-item
+			padding: 10px 5px 9px 60px
 	margin-bottom: 25px
 	&-item
 		padding: 5px 5px 5px 60px
 		color: #56585e
 		font-family: "LatoBold"
 		font-size: 16px
-		line-height: 24px
+		line-height: 20px
 		position: relative
 		&:before
 			position: absolute
@@ -1431,8 +1607,7 @@ img
 			border-radius: 50%
 			content: ''
 			left: 0
-			top: 50%
-			transform: translateY(-50%)
+			top: 15px
 .sale
 	padding: 70px 0 50px
 	&-list
@@ -1563,6 +1738,8 @@ img
 		padding: 95px 0 105px
 		margin: 0 105px
 		border-bottom: 1px solid #efecec
+		&_nopad
+			padding: 30px 0 65px
 	&-item
 		width: calc(50% - 30px)
 .advanced
@@ -1618,10 +1795,17 @@ img
 			&.active:before
 				transform: translateX(0)
 	&-block
-		background: #f7f7f8
 		padding: 30px 40px 115px
 		position: relative
 		height: 100%
+		&-overlay
+			width: 100%
+			height: 100%
+			left: 0
+			top: 0
+			position: absolute
+			background: #f7f7f8
+			z-index: -1
 	&-subtitle
 		color: $active
 		font-family: "GothamProBlack"
@@ -1684,10 +1868,20 @@ img
 		&-item
 			width: calc(50% - 20px)
 .program
+	padding-bottom: 50px
 	&-graf
 		height: 240px
 		position: relative
-		margin: 100px 0
+		margin: 40px 0 95px
+		&-overlay
+			width: 100%
+			height: 100%
+			left: 0
+			top: 0
+			position: absolute
+			background: #ffffff
+		&_second
+			margin-bottom: 60px
 		&-flex
 			display: flex
 			justify-content: space-between
@@ -1700,7 +1894,23 @@ img
 			display: flex
 			flex-direction: column-reverse
 			align-items: center
-			justify-content: flex-start
+			justify-content:
+			&.active
+				.program-graf-circle
+					color: #ffffff
+					background-color: $active
+					border-color: $active
+					box-shadow: 0 0 0 10px rgba(224, 226, 228, 0.4)
+				.program-graf-text
+					color: $active
+			&.accent
+				.program-graf-circle
+					color: #ffffff
+					background-color: $accent
+					border-color: $accent
+					box-shadow: 0 0 0 10px rgba(224, 226, 228, 0.4)
+				.program-graf-text
+					color: #232d42
 		&-circle
 			color: #232d42
 			font-family: "LatoBlack"
@@ -1735,8 +1945,870 @@ img
 			left: 0
 			top: -20px
 			position: absolute
-			background: url(../img/graf.png) no-repeat bottom left 1px
+			background: url(../img/graf.svg) no-repeat bottom left
 			z-index: -1
-.program-graf-circle:hover ~ .program-graf-text, .program-graf-circle.active ~ .program-graf-text
+			&_second
+				background: url(../img/graf_dark.svg) no-repeat bottom left
+	&-level
+		color: #e31d23
+		font-family: "LatoBlack"
+		font-size: 14px
+		text-transform: uppercase
+		margin-bottom: 10px
+		&-val
+			position: relative
+			padding-right: 20px
+			&:after
+				content: ''
+				width: 3px
+				height: 3px
+				background-color: #9d9d9d
+				position: absolute
+				right: 6px
+				border-radius: 50%
+				top: 50%
+				transform: translateY(-50%)
+	&-change
+		position: absolute
+		opacity: 0
+		pointer-events: none
+		width: 100%
+		left: 0
+		top: 0
+		transition: opacity .5s ease
+		&.active
+			opacity: 1
+			pointer-events: auto
+	&-content
+		position: relative
+		&-block
+			display: flex
+			justify-content: space-between
+			padding: 50px 0 95px
+			border-bottom: 1px solid #efecec
+		&-column
+			width: 31%
+			border-left: 2px solid #f5f7fa
+			padding: 0 20px 0 40px
+		&-name
+			color: #232d42
+			font-family: "LatoBlack"
+			font-size: 18px
+			margin-bottom: 20px
+		&-item
+			padding-left: 35px
+			color: #56585e
+			font-size: 14px
+			position: relative
+			margin-bottom: 13px
+			&:last-child
+				margin-bottom: 0
+			&:before
+				position: absolute
+				left: 0
+				top: 5px
+				content: ''
+				width: 4px
+				height: 4px
+				background-color: #ccced3
+				border-radius: 50%
+			&_text
+				font-size: 16px
+				&:before
+					top: 10px
+		&-list
+			&_first
+				padding-top: 5px
+		&-text
+			margin-bottom: 20px
+			&:last-child
+				margin-bottom: 0
+	&-flex
+		display: flex
+		justify-content: space-between
+	&-right
+		max-width: 400px
+		margin-top: 10px
+	&-circle
+		position: absolute
+		top: 0
+		right: 0
+		display: flex
+		z-index: 2
+		&-item
+			margin-left: 40px
+			width: 90px
+		&-svgs
+			width: 70px
+			height: 70px
+			margin: 0 auto
+			position: relative
+		&-content
+			color: $active
+			font-family: "LatoBlack"
+			font-size: 14px
+			text-transform: uppercase
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+		&-text
+			color: #acaeb5
+			font-family: "LatoBlack"
+			font-size: 12px
+			line-height: 1
+			text-transform: uppercase
+			text-align: center
+			margin-top: 15px
+.circle-chart
+	width: 100%
+	height: 100%
+	transform: rotate(-90deg)
+	&__circle
+		//transform: rotate(-90deg)
+		transform-origin: center
+		transition: all .5s ease
+.free
+	&-content
+		padding: 105px 0 65px
+.teachers
+	padding: 95px 0 60px
+	&-top
+		padding: 0 110px
+	&-name
+		color: #ffffff
+		font-family: "LatoBlack"
+		font-size: 18px
+	&-description
+		color: rgba(255, 255, 255, 0.5)
+		font-size: 14px
+		margin-top: 5px
+	&-list
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+		margin-top: 55px
+	&-item
+		position: relative
+		width: calc(25% - 30px)
+		margin-right: 40px
+		margin-bottom: 40px
+		&:nth-child(4n + 4)
+			margin-right: 0
+	&-info
+		position: absolute
+		left: 30px
+		bottom: 30px
+		z-index: 2
+.club
+	&-img
+		margin: -145px 0 105px
+	&-list
+		display: flex
+		justify-content: space-between
+		margin-top: 85px
+	&-item
+		width: calc(25% - 30px)
+		background: #f7f7f8
+		padding: 20px 30px 30px
+		&-name
+			color: $active
+			font-family: "GothamProBlack"
+			font-size: 32px
+			font-weight: 400
+			line-height: 29.89px
+			margin: 20px 0 30px
+			min-height: 58px
+		&-title
+			color: #bbbfc7
+			font-family: "LatoBold"
+			font-size: 12px
+			text-transform: uppercase
+		&-text
+			color: #232d42
+			font-family: "LatoBlack"
+			font-size: 16px
+			margin-top: 7px
+		&-row
+			margin-bottom: 25px
+			&:last-child
+				margin-bottom: 0
+.native
+	padding: 105px 0 110px
+	&-list
+		display: flex
+		justify-content: space-between
+		margin-top: 70px
+	&-item
+		width: calc(33.33% - 26px)
+		position: relative
+		&:after
+			position: absolute
+			content: ''
+			width: 100%
+			height: 44%
+			left: 0
+			bottom: 0
+			background: linear-gradient(to top, #232d42 0%, rgba(35, 45, 66, 0) 100%)
+			opacity: .5
+	&-top
+		padding: 0 110px
+	&-info
+		left: 40px
+		bottom: 40px
+		position: absolute
+		z-index: 2
+.gallery
+	padding-top: 50px
+	&-content
+		font-size: 0
+	&-item
+		width: 12.5%
+		font-size: 0
+		position: relative
+		overflow: hidden
+		&_big
+			width: 25%
+		&-overlay
+			width: 100%
+			height: 100%
+			top: 0
+			right: 0
+			background: #222D40
+			position: absolute
+			z-index: 2
+			display: block
+	&-img
+		width: 100%
+		max-width: 500px
+		transform-origin: 50% 50%
+.grid-sizer
+	width: 12.5%
+.jobs
+	&-content
+		margin-top: 30px
+	&-list
+		display: flex
+		justify-content: space-between
+		max-width: 555px
+		margin-top: 40px
+	&-item
+		width: 170px
+		&-number
+			color: #264796
+			font-family: "GothamProBlack"
+			font-size: 68px
+			line-height: 54px
+		&-text
+			color: #273555
+			font-size: 16px
+			margin-top: 15px
+	&-tabs
+		margin-top: 45px
+	&-tab
+		&-btn
+			padding: 24px 0 24px
+			border-top: 1px solid #eeeeee
+			cursor: pointer
+			position: relative
+			&.active
+				.jobs-tab-title
+					color: $active
+				.jobs-tab-line_top
+					opacity: 0
+				.jobs-tab-line_left
+					background: #bbc2d3
+		&-drop
+			display: none
+			overflow: hidden
+			position: relative
+			top: -5px
+		&-title
+			color: #232d42
+			font-family: "GothamProBlack"
+			font-size: 20px
+			transition: all .5s ease
+		&-subtitle
+			color: #9599a1
+			font-size: 14px
+			margin-top: 10px
+		&-block
+			&-title
+				color: #273555
+				font-family: "GothamProBold"
+				font-size: 16px
+				margin-bottom: 20px
+		&-lines
+			width: 24px
+			height: 24px
+			position: absolute
+			right: 0
+			top: 50%
+			transform: translateY(-50%)
+		&-line
+			width: 100%
+			height: 2px
+			background: $accent
+			position: absolute
+			transition: all .5s ease
+			&_top
+				height: 100%
+				width: 2px
+				left: calc(50% - 1px)
+				top: 0
+			&_left
+				left: 0
+				top: calc(50% - 1px)
+	&-text
+		color: #56585e
+		font-size: 14px
+		line-height: 24px
+		margin-bottom: 25px
+.active-color
 	color: $active
+.reviews
+	&-filter
+		margin-top: 15px
+		&-link
+			color: #646a77
+			font-family: "LatoBold"
+			font-size: 12px
+			line-height: 19.93px
+			text-transform: uppercase
+			text-decoration: none
+			margin-right: 24px
+			transition: color .5s ease
+			&:last-child
+				margin-right: 0
+			&:hover, &.active
+				color: $active
+	&-content
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+		align-items: flex-start
+		padding: 55px 0 65px
+	&-item
+		background: #f5f7fa
+		padding: 40px 40px
+		width: calc(33.33% - 27px)
+		margin-right: 40px
+		margin-bottom: 40px
+		&:nth-child(3n + 3)
+			margin-right: 0
+	&-name
+		color: #232d42
+		font-family: "LatoBlack"
+		font-size: 18px
+	&-description
+		color: #264796
+		font-family: "LatoBold"
+		font-size: 14px
+		margin-top: 5px
+	&-text
+		color: #707378
+		font-family: "LatoItalic"
+		font-size: 14px
+		line-height: 24px
+	&-block
+		margin: 20px 0 20px
+		height: 120px
+		overflow: hidden
+		transition: height .5s ease
+	&-more
+		color: #747d94
+		font-family: "LatoBold"
+		font-size: 14px
+		text-decoration: none
+	&-date
+		color: #a4a9b8
+		font-family: "LatoBold"
+		font-size: 14px
+		margin-top: 20px
+.public
+	&-content
+		padding: 40px 110px 85px
+	&-text
+		margin-bottom: 20px
+.news
+	&-item
+		background-color: #f5f7fa
+		width: calc(33.33% - 27px)
+		display: block
+		margin-bottom: 40px
+		text-decoration: none
+		&:hover
+			.news-title, .news-more
+				color: $active
+				text-decoration: underline
+		&-top
+			height: 200px
+		&-img
+			width: 100%
+			height: 100%
+			object-fit: cover
+		&-content
+			padding: 32px 40px 35px
+		&-flex
+			display: flex
+			align-items: center
+			justify-content: flex-start
+		&-date
+			color: #a4a9b8
+			font-family: "LatoBold"
+			font-size: 14px
+			margin-right: 15px
+	&-title
+		color: #232d42
+		font-family: "GothamProBlack"
+		font-size: 32px
+		line-height: 0.93
+		margin: 20px 0 20px
+	&-text
+		color: #707378
+		font-family: "LatoItalic"
+		font-size: 14px
+		line-height: 24px
+	&-more
+		color: #747d94
+		font-family: "LatoBold"
+		font-size: 14px
+		margin-top: 15px
+	&-content
+		margin: 55px 0 70px
+.post
+	&-social
+		&-text
+			color: #aaaeb9
+			font-family: "LatoBold"
+			font-size: 12px
+			text-transform: uppercase
+		&-list
+			display: flex
+			align-items: center
+			justify-content: flex-start
+			margin-top: 15px
+		&-link
+			margin-right: 20px
+	&-top
+		display: flex
+		align-items: center
+		justify-content: flex-start
+		margin-bottom: 35px
+		.news-item-date
+			font-size: 16px
+			margin-right: 10px
+			font-family: "LatoBlack"
+	&-content
+		display: flex
+		padding: 0 110px
+		justify-content: space-between
+		&-left
+			width: 625px
+		&-right
+			width: 325px
+	&-img
+		margin: 60px 0 65px
+	&-text
+		margin-bottom: 20px
+	&-item
+		border-bottom: 1px solid #e9eaec
+		margin-bottom: 35px
+		&:last-child
+			border-bottom: none
+		&-top
+			display: flex
+			align-items: center
+			justify-content: flex-start
+.post-link
+	color: #232d42
+	font-family: "GothamProBlack"
+	font-size: 32px
+	line-height: 0.93
+	text-decoration: none
+	display: inline-block
+	margin: 20px 0 40px
+	&:hover
+		color: $active
+		text-decoration: underline
+.about
+	&-flex
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		padding-right: 105px
+	&-left
+		width: 485px
+		text-align: right
+	&-right
+		width: 575px
+	&-name
+		color: #232d42
+		font-family: "LatoBlack"
+		font-size: 18px
+		margin-top: 50px
+	&-subname
+		color: #8b8f98
+		font-family: "LatoBold"
+		font-size: 14px
+		margin-top: 5px
+	&-text
+		margin-bottom: 25px
+	&-content
+		margin-top: 50px
+.error
+	position: absolute
+	left: 0
+	top: 0
+	background: #283656 url(../img/error-bg.png) no-repeat center bottom
+	background-size: cover
+	width: 100%
+	height: 100vh
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	&-body
+		height: 100vh
+	&-number
+		color: #ffffff
+		font-family: "GothamProBlack"
+		font-size: 149px
+	&-text
+		color: #ffffff
+		font-family: "LatoItalic"
+		font-size: 14px
+		&-link
+			color: #ffffff
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+.contacts
+	padding: 70px 0 70px
+	&-top
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+		&-item
+			margin-right: 110px
+	&-name
+		color: rgba(35, 45, 66, 0.5)
+		font-family: "LatoBold"
+		font-size: 12px
+		text-transform: uppercase
+	&-block
+		display: flex
+		flex-direction: column
+		margin-top: 30px
+		&-row
+			display: flex
+			justify-content: flex-start
+			align-items: flex-start
+		&-info
+			color: #76787e
+			font-family: "LatoBold"
+			font-size: 14px
+			margin-left: 15px
+	&-link
+		color: #232d42
+		font-family: "LatoBold"
+		font-size: 16px
+		margin-bottom: 10px
+		&_phone
+			padding-left: 30px
+			background: url(../img/phone3.svg) no-repeat left center
+			background-size: 16px 16px
+			text-decoration: none
+		&_fax
+			padding-left: 30px
+			background: url(../img/fax.svg) no-repeat left center
+			background-size: 16px 16px
+			text-decoration: none
+		&_mail
+			color: #264796
+	&-content
+		display: flex
+		justify-content: flex-start
+		align-items: flex-start
+		flex-wrap: wrap
+		margin-top: 100px
+	&-item
+		width: calc(25% - 30px)
+		background: #f7f7f8
+		margin-right: 40px
+		padding: 25px 30px 0 30px
+		margin-bottom: 40px
+		&:nth-child(4n + 4)
+			margin-right: 0
+		&-info
+			color: #a2a4a9
+			font-family: "GothamProBlack"
+			font-size: 14px
+			text-transform: uppercase
+			padding-bottom: 5px
+		&-new
+			color: $active
+		&-metro
+			color: #232d42
+			font-family: "LatoBlack"
+			font-size: 18px
+			margin-top: 25px
+		&-loc
+			color: #76787e
+			font-family: "LatoBold"
+			font-size: 14px
+			margin: 5px 0 25px
+		&-link
+			display: inline-block
+			color: #232d42
+			font-family: "LatoBold"
+			font-size: 14px
+			text-decoration: none
+			margin-bottom: 11px
+			padding-left: 40px
+			&_first
+				background: url(../img/phone.svg) no-repeat left center
+				background-size: 14px 14px
+			&_second
+				background: url(../img/kyivstar.svg) no-repeat left -4px center
+				background-size: 25px 25px
+			&_third
+				background: url(../img/vodafone.svg) no-repeat left -2px center
+				background-size: 20px 20px
+			&_fourth
+				background: url(../img/lifecell.svg) no-repeat left center
+				background-size: 14px 14px
+		&-map
+			width: calc(100% + 60px)
+			height: 290px
+			margin-left: -30px
+			margin-top: 15px
+.training
+	padding-bottom: 105px
+	&-top
+		display: flex
+		justify-content: flex-start
+		margin: 45px 0 30px
+		padding-bottom: 60px
+		border-bottom: 1px solid #efecec
+		&_custom
+			border-bottom: none
+			padding-bottom: 0
+		&-item
+			margin-right: 80px
+		&-title
+			color: #a5a9af
+			font-family: "LatoBlack"
+			font-size: 12px
+			text-transform: uppercase
+		&-text
+			color: #232d42
+			font-family: "LatoBlack"
+			font-size: 18px
+			margin-top: 10px
+			&_accent
+				color: $accent
+			&_active
+				color: $active
+	&-content
+		display: flex
+		margin-top: 50px
+		.program-content-item
+			font-size: 16px
+			line-height: 24px
+			margin-bottom: 22px
+			&:last-child
+				margin-bottom: 0
+		.program-content-item:before
+			top: 10px
+		&-left
+			width: 440px
+			padding-right: 80px
+		&-center
+			width: 440px
+			padding: 0 85px 0 40px
+			border-left: 1px solid #f5f7fa
+		&-right
+			width: 400px
+			border-left: 1px solid #f5f7fa
+			padding-left: 40px
+		&-title
+			color: #232d42
+			font-family: "LatoBlack"
+			font-size: 18px
+			margin-bottom: 20px
+	&-text
+		margin-bottom: 25px
+		&:last-child
+			margin-bottom: 0
+	&-btn
+		width: 305px
+	&-info
+		color: #232d42
+		font-family: "LatoBlack"
+		font-size: 18px
+		margin: 75px 0 55px
+	&-main
+		display: flex
+		justify-content: space-between
+		&-item
+			width: calc(25% - 30px)
+			background: #f7f7f8
+			padding: 30px 30px
+		&-title
+			color: #a5a9af
+			font-family: "LatoBlack"
+			font-size: 12px
+			text-transform: uppercase
+			padding-bottom: 5px
+			min-height: 47px
+		&-route
+			padding-left: 25px
+			margin-top: 25px
+		&-row
+			padding-left: 45px
+			margin-top: 20px
+			&-title
+				color: #264796
+				font-family: "GothamProBlack"
+				font-size: 32px
+				&_active
+					color: $active
+			&-text
+				color: #232d42
+				font-family: "LatoBlack"
+				font-size: 16px
+				margin-top: 10px
+	&-description
+		color: #80838c
+		font-size: 14px
+		line-height: 23.91px
+		margin-top: 40px
+	&-bottom
+		display: flex
+		justify-content: space-between
+		margin-top: 55px
+		&-right
+			display: flex
+			justify-content: flex-end
+.route
+	position: relative
+	&-list
+		display: flex
+		flex-direction: column-reverse
+	&-item
+		color: #264796
+		font-family: "LatoBlack"
+		font-size: 16px
+		margin-bottom: 13px
+		&:first-child
+			margin-bottom: 0
+		&.active
+			color: $active
+		&.nomarg
+			margin-bottom: 0
+	&-line
+		width: 2px
+		height: calc(100% - 15px)
+		position: absolute
+		left: 0
+		top: 5px
+		background-color: #264796
+		&:before
+			width: 6px
+			height: 6px
+			background-color: #264796
+			border-radius: 50%
+			left: 50%
+			transform: translateX(-50%)
+			bottom: -3px
+			position: absolute
+			content: ''
+		&:after
+			width: 10px
+			height: 7px
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			background: url(../img/arrow-up.svg) no-repeat center
+			background-size: contain
+			content: ''
+.pdf-svg
+	width: 16px
+	height: 16px
+.print-svg
+	width: 20px
+	height: 20px
+.pdf-btn
+	width: 270px
+.print-btn
+	width: 245px
+	margin-left: 30px
+.overflow
+	overflow: hidden
+.first-btns_mobile
+	display: none
+//.odometer
+//	display: flex
+//.digit
+//	height: 77px
+//	width: 50px
+//	overflow: hidden
+//.digit-container
+//	line-height: 1em
+//	animation: slide infinite linear
+//
+//.digit-one
+//	animation-duration: 10000ms
+//
+//.digit-ten
+//	animation-duration: 100000ms
+//
+//.digit-hundred
+//	animation-duration: 1000000ms
+//
+//
+//@keyframes slide
+//	0%
+//		transform: translateY(0)
+//	9%
+//		transform: translateY(0em)
+//	10%
+//		transform: translateY(-1em)
+//	19%
+//		transform: translateY(-1em)
+//	20%
+//		transform: translateY(-2em)
+//	29%
+//		transform: translateY(-2em)
+//	30%
+//		transform: translateY(-3em)
+//	39%
+//		transform: translateY(-3em)
+//	40%
+//		transform: translateY(-4em)
+//	49%
+//		transform: translateY(-4em)
+//	50%
+//		transform: translateY(-5em)
+//	59%
+//		transform: translateY(-5em)
+//	60%
+//		transform: translateY(-6em)
+//	69%
+//		transform: translateY(-6em)
+//	70%
+//		transform: translateY(-7em)
+//	79%
+//		transform: translateY(-7em)
+//	80%
+//		transform: translateY(-8em)
+//	89%
+//		transform: translateY(-8em)
+//	90%
+//		transform: translateY(-9em)
+//	99%
+//		transform: translateY(-9em)
+//	100%
+//		transform: translateY(-10em)
 @import "media" // Всегда в конце
