@@ -59,7 +59,8 @@ gulp.task('libs-js', function(){
       'app/libs/animation.gsap.js',
       'app/libs/addIndicators.min.js',
       'app/libs/imagesloaded/imagesloaded.pkgd.min.js',
-      'app/libs/fancybox/dist/jquery.fancybox.min.js'
+      'app/libs/fancybox/dist/jquery.fancybox.min.js',
+      'app/libs/jquery.touchSwipe.min.js'
 
       // 'app/libs/select/ddslick.js',
       // 'app/libs/wow/dist/wow.min.js',

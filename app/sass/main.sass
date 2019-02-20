@@ -68,6 +68,10 @@ body
 	font-family: "Lato", sans-serif
 	overflow-x: hidden
 	padding-top: 123px
+	width: 100%
+	left: 0
+	top: 0
+	transition: background-color .5s ease
 
 img
 	display: block
@@ -228,25 +232,41 @@ img
 	width: 100%
 	z-index: 5
 	background: #ffffff
+	transition: all .5s ease
 	&-btn
 		width: 30px
 		height: 24px
 		position: relative
 		display: none
+		right: -5px
 		&-line
 			position: absolute
 			left: 5px
 			width: 20px
 			height: 2px
 			background: #232d42
+			transition: all .5s ease
 			&_top
 				top: 5px
 			&_bottom
 				bottom: 5px
-	&_error
-		background: transparent
+		&.active
+			.header-btn-line_top
+				transform: rotate(225deg)
+				top: 11px
+			.header-btn-line_bottom
+				transform: rotate(-225deg)
+				bottom: 11px
 	&_main
 		background: #f5f7fa
+	&.active
+		background: #ffffff
+	&_error
+		background: transparent
+		.header-btn-line
+			background: #ffffff
+		&.active
+			background: #283656
 	&-row
 		display: flex
 		justify-content: space-between
@@ -498,7 +518,10 @@ img
 		background: #f5f7fa
 	&_courses
 		padding-top: 95px
+		overflow: hidden
 	&_children
+		padding-top: 50px
+	&_free
 		padding-top: 50px
 	&-title
 		&_second
@@ -516,6 +539,7 @@ img
 		position: relative
 	&-left
 		width: 500px
+		margin-right: 10px
 	&-right
 		width: 794px
 		position: relative
@@ -760,7 +784,7 @@ img
 			margin-top: 30px
 		&_ielts
 			font-size: 48px
-			line-height: 44px
+			line-height: 0.92
 			padding: 0 110px
 			margin-top: 75px
 		&_small
@@ -951,11 +975,15 @@ img
 		padding-top: 0
 		.table-left
 			padding-left: 0
-		.table-list
+		.table-select
 			margin-left: 0
 	&_white
 		background: transparent
 		padding-bottom: 40px
+		.table-select:before
+			border: 2px solid #bbbfc7
+		.table-list
+			background: #ffffff
 		.table-column-title
 			color: $active
 		.drop-line, .table-line
@@ -980,6 +1008,20 @@ img
 		position: relative
 	&-select
 		margin: 40px 0 0 -60px
+		&:after
+			width: 0
+			height: 0
+			border: 4px solid transparent
+			border-top: 4px solid #646a77
+			position: absolute
+			content: ''
+			right: 15px
+			top: 50%
+			z-index: 2
+			display: none
+		&.active:after
+			transform: rotate(180deg)
+			top: calc(50% - 4px)
 		&_white
 			margin-top: 0
 	&-item
@@ -1034,6 +1076,20 @@ img
 			width: 100%
 			padding-right: 13px
 			position: relative
+			&:after
+				width: 0
+				height: 0
+				border: 4px solid transparent
+				border-top: 4px solid #646a77
+				position: absolute
+				content: ''
+				right: 15px
+				top: 50%
+				z-index: 2
+				display: none
+			&.active:after
+				transform: rotate(180deg)
+				top: calc(50% - 4px)
 		&-drop
 			margin-top: 20px
 			position: relative
@@ -1099,6 +1155,7 @@ img
 			width: 100%
 		&_club
 			width: 450px
+			margin-right: 50px
 	&-right
 		width: 575px
 		&_club
@@ -1668,10 +1725,12 @@ img
 				position: absolute
 .course-reviews
 	padding: 50px 0 110px
+	position: relative
 	&_beginner
 		padding-top: 85px
 	&_children
 		padding-top: 105px
+		position: relative
 	&-btn
 		width: 145px
 		background-color: #f5f7fa
@@ -1819,7 +1878,7 @@ img
 		line-height: 24px
 		margin-top: 25px
 	&-title
-		line-height: 60px
+		line-height: 0.9375
 .active-span
 	color: $active
 	text-transform: uppercase
@@ -1845,6 +1904,7 @@ img
 	&-left
 		width: 350px
 		flex-shrink: 0
+		margin-right: 50px
 	&-right
 		width: 575px
 		&-flex
@@ -1869,6 +1929,7 @@ img
 			width: calc(50% - 20px)
 .program
 	padding-bottom: 50px
+	overflow: hidden
 	&-graf
 		height: 240px
 		position: relative
@@ -1945,10 +2006,10 @@ img
 			left: 0
 			top: -20px
 			position: absolute
-			background: url(../img/graf.svg) no-repeat bottom left
+			background: url(../img/graf.svg) no-repeat bottom right 15px
 			z-index: -1
 			&_second
-				background: url(../img/graf_dark.svg) no-repeat bottom left
+				background: url(../img/graf_dark.svg) no-repeat bottom right 15px
 	&-level
 		color: #e31d23
 		font-family: "LatoBlack"
@@ -2107,6 +2168,7 @@ img
 		display: flex
 		justify-content: space-between
 		margin-top: 85px
+		flex-wrap: wrap
 	&-item
 		width: calc(25% - 30px)
 		background: #f7f7f8
@@ -2116,7 +2178,7 @@ img
 			font-family: "GothamProBlack"
 			font-size: 32px
 			font-weight: 400
-			line-height: 29.89px
+			line-height: 0.9375
 			margin: 20px 0 30px
 			min-height: 58px
 		&-title
@@ -2129,6 +2191,8 @@ img
 			font-family: "LatoBlack"
 			font-size: 16px
 			margin-top: 7px
+			&_price
+				color: #264796
 		&-row
 			margin-bottom: 25px
 			&:last-child
@@ -2139,6 +2203,7 @@ img
 		display: flex
 		justify-content: space-between
 		margin-top: 70px
+		flex-wrap: wrap
 	&-item
 		width: calc(33.33% - 26px)
 		position: relative
@@ -2442,6 +2507,7 @@ img
 		text-align: right
 	&-right
 		width: 575px
+		margin-left: 50px
 	&-name
 		color: #232d42
 		font-family: "LatoBlack"
@@ -2491,6 +2557,9 @@ img
 		justify-content: flex-start
 		&-item
 			margin-right: 110px
+			&:first-child
+				width: 350px
+				flex-shrink: 0
 	&-name
 		color: rgba(35, 45, 66, 0.5)
 		font-family: "LatoBold"
@@ -2536,8 +2605,21 @@ img
 		width: calc(25% - 30px)
 		background: #f7f7f8
 		margin-right: 40px
-		padding: 25px 30px 0 30px
 		margin-bottom: 40px
+		&-top
+			padding: 25px 30px 15px 30px
+			position: relative
+		&-next
+			width: 50px
+			height: 50px
+			display: flex
+			align-items: center
+			justify-content: center
+			background: #e6e9ed
+			position: absolute
+			right: 0
+			bottom: 0
+			display: none
 		&:nth-child(4n + 4)
 			margin-right: 0
 		&-info
@@ -2558,6 +2640,13 @@ img
 			font-family: "LatoBold"
 			font-size: 14px
 			margin: 5px 0 25px
+		&-btn
+			background: $accent
+			display: none
+			margin: 20px 0 15px
+			&:after
+				background: #e31d23
+				color: #ffffff
 		&-link
 			display: inline-block
 			color: #232d42
@@ -2579,10 +2668,8 @@ img
 				background: url(../img/lifecell.svg) no-repeat left center
 				background-size: 14px 14px
 		&-map
-			width: calc(100% + 60px)
+			width: 100%
 			height: 290px
-			margin-left: -30px
-			margin-top: 15px
 .training
 	padding-bottom: 105px
 	&-top
@@ -2748,6 +2835,78 @@ img
 	overflow: hidden
 .first-btns_mobile
 	display: none
+.mobile-menu
+	position: fixed
+	width: 100%
+	height: 100vh
+	overflow: scroll
+	left: 0
+	top: 0
+	z-index: 4
+	background: #ffffff
+	padding-top: 77px
+	opacity: 0
+	pointer-events: none
+	display: none
+	transition: opacity .5s ease
+	&.active
+		opacity: 1
+		pointer-events: auto
+	&-content
+		padding: 20px 40px
+		&.iphone
+			padding-bottom: 100px
+	&-link
+		color: #646a77
+		font-family: "LatoBold"
+		font-size: 14px
+		text-transform: uppercase
+		text-decoration: none
+		position: relative
+		&:before
+			content: ''
+			left: 0
+			bottom: -8px
+			position: absolute
+			width: 100%
+			height: 2px
+			background-color: #e31d23
+			opacity: 0
+		&.active
+			&:before
+				opacity: 1
+	&-item
+		//margin-bottom: 27px
+		padding: 14px 0
+		&_enter
+			margin: 50px 0 0
+			border-bottom: 1px solid rgba(185, 185, 185, 0.2)
+			border-top: 1px solid rgba(185, 185, 185, 0.2)
+	&-contact
+		display: flex
+		justify-content: flex-start
+		margin-top: 45px
+	&-lang
+		position: absolute
+		top: 115px
+		right: 40px
+		display: flex
+		flex-direction: column
+		&-link
+			color: #646a77
+			font-family: "LatoBold"
+			font-size: 13px
+			margin-bottom: 20px
+			text-decoration: none
+.post-title_mob, .percent_beginner_mob, .sale-price_mobile, .jobs-mobile
+	display: none
+.table-mobile-text
+	color: #80838c
+	font-size: 14px
+	line-height: 23.91px
+	display: none
+.program-graf-overflow
+	position: relative
 //.odometer
 //	display: flex
 //.digit

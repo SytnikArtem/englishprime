@@ -440,10 +440,66 @@ $(document).ready(function () {
 
         $('.table-select').click(function(){
            $(this).find('.table-list').toggleClass('active');
+           $(this).toggleClass('active');
         });
         // $('.table-item').click(function(){
         //    $(this).addClass('top-item').siblings().removeClass('top-item');
         // });
     }
 
+    //Мобильное меню
+
+    $('.header-btn').click(function(){
+       $(this).toggleClass('active');
+       $('.mobile-menu').toggleClass('active');
+       $('.header').toggleClass('active');
+
+        if($(this).hasClass('active')) {
+            bodyFreezeScroll();
+        }
+        else {
+            bodyUnfreezeScroll();
+        }
+    });
+
+    //удаление скрола
+
+    var $body = $(window.document.body);
+    function bodyFreezeScroll() {
+        var bodyWidth = $body.innerWidth();
+        $body.css('overflow', 'hidden');
+        $body.css('marginRight', ($body.css('marginRight') ? '+=' : '') + ($body.innerWidth() - bodyWidth));
+        $body.css('position', 'fixed');
+    }
+
+    function bodyUnfreezeScroll() {
+        var bodyWidth = $body.innerWidth();
+        $body.css('marginRight', '0');
+        $body.css('overflow', 'auto');
+        $body.css('position', 'relative');
+    }
+    if(navigator.userAgent.match(/iPhone/)) {
+        $('.mobile-menu-content').addClass('iphone');
+    }
+
+    //Контакты на мобильном
+
+    $('.contacts-item-next').click(function(e){
+        e.preventDefault();
+        $(this).toggleClass('active');
+        if ($(this).hasClass('active')) {
+            $(this).parent().parent().addClass('active').siblings().addClass('hide');
+            $('body').addClass('new-page');
+        }
+        else {
+            $('body').removeClass('new-page');
+            $(this).parent().parent().removeClass('active').siblings().removeClass('hide');
+        }
+    });
+    $('body').swipe({
+        swipeLeft:function(event, direction) {
+            $('body').removeClass('new-page');
+            $('.contacts-item').removeClass('active').removeClass('hide');
+        }
+    });
 });

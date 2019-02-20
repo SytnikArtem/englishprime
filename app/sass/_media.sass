@@ -27,6 +27,10 @@
     padding-top: 112px
   .first-right
     width: 600px
+    &_free
+      display: flex
+      justify-content: center
+      align-items: flex-end
   .title
     font-size: 54px
   .second-left
@@ -49,11 +53,17 @@
   .table-column-day, .table-column-path
     font-size: 8px
   .table-column-item
-    padding: 18px 0
+    padding: 18px 10px
   .fourth-flex
     padding: 0
   .fourth
     padding-top: 70px
+    &_about
+      padding-top: 5px
+    &_advanced
+      padding: 0 0 70px
+    &_club
+      padding-top: 0
   .fifth
     margin-top: -220px
   .fifth-list
@@ -70,6 +80,59 @@
     opacity: 1
   .fourth-sliders-block
     padding-bottom: 70px
+  .about-flex
+    padding-right: 0
+  .first-right-men-img
+    height: 400px
+  .first-right_beginner
+    align-items: flex-end
+    justify-content: center
+    display: flex
+  .club-item
+    width: calc(25% - 15px)
+  .native-top
+    padding: 0
+  .native
+    padding: 70px 0
+  .native-list
+    margin-top: 40px
+  .fourth-right_club
+    margin-right: 0
+  .club-item-name
+    font-size: 28px
+  .contacts-item
+    width: calc(25% - 10px)
+    margin-right: 13px
+    margin-bottom: 13px
+  .contacts-top-item
+    margin-right: 70px
+  .contacts-link-flex
+    display: flex
+    flex-direction: column
+  .courses-right
+    width: 480px
+  .courses-left
+    width: 460px
+    margin-right: 30px
+  .courses-img
+    max-width: 90%
+  .courses-row
+    margin-top: 120px
+  .courses-row_reverse .courses-left
+    margin-right: 0
+    margin-left: 40px
+  .first-title_second
+    margin-top: -25px
+  .free-content
+    padding-bottom: 0
+  .second-subtitle_ielts
+    margin-bottom: 0
+  .car-img
+    max-width: 800px
+  .sale-item
+    padding: 40px
+  .sale-item-number
+    font-size: 94px
 @media only screen and (max-width : 1023px)
   .header-center
     display: none
@@ -86,7 +149,10 @@
   .first-slider
     padding: 0 20px
   .first-right
-    width: 400px
+    width: 100%
+  .first-left
+    width: 340px
+    flex-shrink: 0
   .title
     font-size: 46px
   .first-title_second
@@ -246,6 +312,142 @@
     width: 100%
   .third-overlay
     width: 100%
+  .header-info-phone_first
+    background: url(../img/phone.svg) no-repeat left 10px center
+    background-size: 14px 14px
+  .header-info-right
+    padding-top: 0
+    margin: -15px 60px 0 -10px
+  .header-info-phone
+    font-size: 16px
+    padding-left: 40px
+    margin: 10px 0
+  .mobile-menu
+    display: block
+  .advanced-item
+    width: calc(33.33% - 10px)
+  .advanced-item-container
+    height: 33vw
+  .advanced-block
+    padding: 30px 20px 115px
+  .advanced-btn
+    left: 20px
+  .fourth-flex_start
+    flex-direction: row
+  .course-reviews-item
+    width: calc(33.33% - 10px)
+  .course-reviews-content
+    padding: 20px
+  .course-reviews_beginner
+    padding-bottom: 70px
+  .first_beginner
+    padding-top: 40px
+  .first-right-overlay
+    width: 100%
+  .club-img
+    margin: -90px 0 60px
+  .club-item
+    width: calc(50% - 10px)
+    margin-bottom: 20px
+  .club-list
+    margin-top: 25px
+  .native-item
+    width: calc(33.33% - 10px)
+  .native-info
+    left: 20px
+    bottom: 20px
+  .contacts-top
+    flex-direction: column
+  .contacts
+    padding: 40px 0
+  .contacts-content
+    margin-top: 40px
+  .contacts-item
+    width: calc(33.33% - 10px)
+    &:nth-child(3n + 3)
+      margin-right: 0
+    &:nth-child(4n + 4)
+      margin-right: 13px
+  .courses-row
+    margin-top: 150px
+  .courses-left
+    height: 30vw
+  .courses-img
+    max-width: 40vw
+  .table-line
+    display: none
+  .table-column-title:after, .table-select:after
+    display: block
+  .gallery-item-overlay
+    display: none
+  .second-subtitle_small
+    top: -10px
+  .beginner-flex
+    margin: 0
+    padding: 70px 0
+  .start-content
+    padding: 0
+  .start-content
+    flex-direction: column
+  .start-right
+    margin-top: 30px
+  .start
+    padding: 70px 0
+  .second-subtitle_ielts
+    padding: 0
+  .car-list
+    padding-left: 30px
+  .car-img
+    max-width: 100%
+  .car-item
+    width: 115px
+    margin-right: 5px
+  .car-number
+    font-size: 52px
+  .sale
+    padding: 0 0 50px
+  .sale-item
+    padding: 40px 25px
+  .sale-item-number
+    font-size: 65px
+  .sale-item-number_small
+    font-size: 40px
+  .jobs-list
+    flex-direction: column
+    .line
+      display: none
+  .jobs-item
+    width: 100%
+    display: flex
+    align-items: center
+    margin-bottom: 20px
+    &:last-child
+      margin-bottom: 0
+  .jobs-item-number
+    width: 105px
+    flex-shrink: 0
+    padding-right: 30px
+    margin-right: 30px
+    position: relative
+    &:before
+      width: 2px
+      height: 64%
+      top: 18%
+      right: 0
+      background: $active
+      position: absolute
+      content: ''
+  .jobs-item-text
+    margin-top: 0
+  .program-content-column
+    width: 32%
+    padding: 0 10px 0 20px
+  .program
+    padding-bottom: 5px
+  .program-content-block
+    padding-bottom: 60px
+  .program-graf-overlay
+    display: none
 @media only screen and (max-width : 767px)
   .first-flex, .second-flex
     flex-direction: column
@@ -258,8 +460,6 @@
     font-size: 54px
   .first
     padding-top: 35px
-  .first-right
-    width: 560px
   .first-slider
     margin-top: 20px
     padding: 0
@@ -287,7 +487,7 @@
   .second-right-top
     padding: 50px 0 40px
   .subtitle
-    font-size: 36px
+    font-size: 32px
   .second-video
     width: calc(100% + 80px)
     margin-left: -40px
@@ -383,13 +583,20 @@
   .table
     padding: 40px 30px 0
   .table-select
-    margin-top: 20px
+    margin-top: 30px
   .table-column-day, .table-column-path, .table-column-date
     font-size: 12px
   .fourth-left
     width: 100%
+    margin-right: 0
   .fourth
     padding-top: 50px
+    &_about
+      padding: 30px 0 15px
+    &_advanced
+      padding: 35px 0 40px
+    &_club
+      padding-top: 35px
   .fourth-right
     margin-top: 15px
   .fourth-list
@@ -435,3 +642,365 @@
     align-items: flex-start
   .footer-bottom
     margin-top: 25px
+  .about-flex
+    flex-direction: column
+  .post-title
+    display: none
+    &_mob
+      display: block
+      text-align: left
+      letter-spacing: -1px
+      margin-bottom: 40px
+  .about-right
+    width: 100%
+    margin-left: 0
+  .about-left
+    width: 100%
+    text-align: left
+  .about-right .line
+    display: none
+  .page-line
+    display: none
+  .first-title_third, .first-title_fourth
+    margin-top: -10px
+  .about-content
+    margin-top: 30px
+  .advanced-item
+    width: 100%
+    margin-bottom: 30px
+    min-height: auto
+    &:last-child
+      margin-bottom: 0
+  .advanced-content
+    flex-direction: column
+  .advanced-item-container
+    height: auto
+  .advanced-block
+    padding: 30px 40px 115px
+  .advanced-btn
+    left: 40px
+  .fourth-flex_advanced .fourth-left
+    width: 100%
+  .fourth-flex_advanced .fourth-right
+    margin-top: 30px
+  .advanced-content
+    margin-top: 10px
+  .first-right_beginner
+    width: 100%
+    margin-top: 100px
+  .first-right-overlay
+    width: calc(100% + 80px)
+    left: -40px
+  .first-right-men-img
+    height: auto
+    position: relative
+    top: -90px
+  .percent_beginner
+    display: none
+  .percent_beginner_mob
+    display: block
+    padding: 10px 0 20px
+  .percent_beginner .percent-item
+    margin-bottom: 35px
+  .beginner-flex
+    margin: 0
+    flex-direction: column
+    padding: 45px 0 50px
+  .beginner-item
+    width: 100%
+  .overflow
+    width: calc(100% + 80px)
+    margin-left: -40px
+    height: 300px
+    img
+      height: 100%
+      object-fit: cover
+  .course-reviews-item
+    width: 100%
+    margin-bottom: 30px
+  .course-reviews-list
+    flex-direction: column
+    margin-top: 25px
+    position: relative
+  .course-reviews-object
+    height: auto
+  .course-reviews-btn
+    position: absolute
+    left: 40px
+    bottom: 40px
+  .course-reviews_beginner
+    padding: 35px 0 100px
+    position: relative
+  .course-reviews-content
+    padding: 35px 40px
+  .fourth-flex_start
+    position: static
+  .first-text
+    font-size: 16px
+    line-height: 1.5
+    margin-top: 30px
+  .course-reviews_children
+    padding-top: 0
+  .club-item-name
+    font-size: 32px
+    min-height: auto
+    margin-bottom: 45px
+  .club-img
+    max-width: calc(100% + 80px)
+    margin: -40px 0 35px -40px
+  .club-item
+    width: 100%
+  .club-item-block
+    display: flex
+    flex-wrap: wrap
+  .club-item-row
+    width: 50%
+    margin-bottom: 35px
+    &:last-child, &:nth-child(3)
+      margin-bottom: 0
+  .native-list
+    justify-content: flex-start
+  .native-item
+    width: calc(50% - 10px)
+    margin-right: 20px
+    margin-bottom: 85px
+    &:nth-child(2n + 2)
+      margin-right: 0
+    &:nth-last-child
+      margin-bottom: 0
+  .native-info
+    left: 0
+    bottom: -60px
+  .teachers-name
+    color: #232d42
+  .teachers-description
+    color: rgba(35, 45, 66, 0.5)
+  .native
+    padding-bottom: 10px
+  .contacts-item
+    width: 100%
+    margin-right: 0
+    margin-bottom: 15px
+    &:nth-child(4n + 4)
+      margin-right: 0
+  .contacts-item-map
+    display: none
+  .contacts-item-link
+    display: block
+  .line_schedule
+    margin-top: 25px
+  .contacts
+    padding: 30px 0 30px
+  .contacts-top-item
+    width: 100%
+    margin-right: 0
+    margin-bottom: 25px
+    &:last-child
+      margin-bottom: 0
+  .contacts-link-flex
+    display: block
+  .contacts-top
+    margin-bottom: 30px
+  .contacts-content
+    margin-top: 0
+  .contacts-item-next
+    display: flex
+  .contacts-item-map
+    width: calc(100% + 80px)
+    margin-left: -40px
+    margin-bottom: -45px
+    height: 515px
+  .contacts-item-top
+    z-index: 2
+    transition: all .5s ease
+  .contacts-item.active
+    .contacts-item-top
+      background: #ffffff
+      margin-bottom: -140px
+    .contacts-item-map
+      display: block
+    .contacts-item-btn
+      display: flex
+    .contacts-item-next
+      top: 0
+      .arrow-svg
+        transform: rotate(180deg)
+  .contacts-item.hide
+    display: none
+  .new-page
+    background: #f7f7f8
+    .header
+      background: #f7f7f8
+    .fourth_club, .contacts-top
+      display: none
+  .courses-top
+    flex-direction: column
+    padding-bottom: 20px
+  .courses
+    padding: 30px 0 40px
+  .courses-btn
+    margin-top: 40px
+  .courses-row
+    flex-direction: column
+    margin-top: 175px
+    &:nth-child(3)
+      margin-top: 50px
+    &:nth-child(5)
+      margin-top: 80px
+  .courses-left
+    width: 100%
+    height: 230px
+    margin-right: 0
+  .courses-img
+    &_first
+      max-width: 320px
+    &_second
+      max-width: 385px
+    &_right
+      max-width: 380px
+    &_top
+      max-width: 380px
+  .courses-right
+    width: 100%
+    margin-top: 25px
+  .courses-subtitle
+    font-size: 32px
+    letter-spacing: 0
+  .courses-text
+    margin-top: 15px
+  .courses-right-btn
+    margin-top: 25px
+  .courses-row_reverse .courses-left
+    margin-left: 0
+  .first-right_free
+    width: 100%
+    margin-top: 110px
+  .free-content
+    padding: 5px 0 30px
+  .table_white
+    padding: 40px 0 25px
+  .table-subtitle_free
+    max-width: 350px
+  .table-mobile-text
+    display: block
+  .first-text_free
+    max-width: 100%
+  .gallery-item, .grid-sizer
+    width: 33.33%
+  .gallery
+    margin-top: 30px
+  .start-right
+    width: 100%
+  .first-right-men-img_iets
+    max-width: 475px
+    left: 40px
+    top: -135px
+  .first-text_big
+    max-width: 100%
+  .first-right_beginner
+    margin-top: 160px
+  .second-subtitle_ielts
+    margin-top: 35px
+    font-size: 32px
+    margin-bottom: 0
+  .beginner-item:first-child
+    margin-bottom: 25px
+  .start-subtitle
+    font-size: 32px
+  .start-left
+    margin-right: 0
+    width: 100%
+  .start
+    padding: 35px 0 40px
+  .start-right-flex
+    flex-direction: column
+    margin-top: 35px
+  .start-right-item
+    width: 100%
+    &:first-child
+      margin-bottom: 30px
+  .sale-item
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+  .sale-item-left, .sale-item-right
+    width: 100%
+  .sale-price
+    display: none
+    &_mobile
+      display: block
+  .car-img
+    max-width: 750px
+    margin-left: 0
+  .first-right_car
+    margin-top: 105px
+    .first-right-overlay
+      height: 540px
+  .car-list
+    padding: 0
+    flex-wrap: wrap
+    margin: 25px 0 40px
+  .car-number
+    font-size: 68px
+  .car-item
+    margin-right: 15px
+    width: 145px
+    margin-bottom: 25px
+  .second-description_big
+    margin-bottom: 30px
+  .sale-item
+    width: 100%
+    padding: 40px 40px
+    &:first-child
+      margin-bottom: 35px
+  .sale-list
+    flex-direction: column
+  .sale
+    padding: 45px 0 0
+  .sale-item-number
+    font-size: 110px
+  .sale-item-number_small
+    font-size: 60px
+  .sale-item-right
+    margin-top: 30px
+  .sale-item-left
+    margin-left: 5px
+  .sale-price
+    margin-top: 10px
+  .schedule-question-btn
+    max-width: 250px
+    margin-top: 40px
+  .second-left_nomarg
+    margin-top: 0
+  .jobs-mobile
+    display: block
+  .jobs-desc
+    display: none
+  .second-form_jobs
+    width: calc(100% + 80px)
+    margin-left: -40px
+  .jobs-img
+    max-width: calc(100% + 500px)
+    margin-left: -250px
+  .second
+    overflow: hidden
+  .jobs
+    padding: 30px 0 0
+  .jobs-content
+    margin-top: 0
+  .jobs-item-number
+    font-size: 60px
+  .jobs-item
+    margin-bottom: 27px
+  .jobs-tab-btn
+    padding-right: 50px
+  .program-graf-overflow
+    min-width: 550px
+    padding-right: 40px
+  .program-graf
+    overflow: scroll
+    padding: 0 40px
+    width: calc(100% + 80px)
+    margin-left: -40px
+  .program-graf-bg
+    width: calc(100% - 40px)
