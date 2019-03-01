@@ -2,6 +2,16 @@
 
 $(document).ready(function () {
 
+    // $('.table-item').click(function(){
+    //    var tableIndex =  $(this).index();
+    //     $('.table-right').removeClass('active').hide();
+    //    $('.table-right').eq(tableIndex).addClass('active').show();
+    //     var tableLength = $('.table-right.active').find('.table-column-drop').eq(0).find('.table-column-item').length;
+    //     console.log(tableLength);
+    //     var line = '<div class="table-line table-line_first gsapWidth" data-delay="1" data-duration="1.5"></div>';
+    //     $('.table-right.active').append(line);
+    // });
+
     //Слайдер на главной (первый экран)
     $('.first-slider').slick({
         slidesToShow: 1,
@@ -308,9 +318,20 @@ $(document).ready(function () {
         $('.program-content').height(currentHeight);
     });
 
-    var circleArr1 = ['10', '20', '30', '40', '50', '60', '70', '80', '90'];
-    var circleArr2 = ['5', '10', '15', '20', '25', '30', '35', '40', '45'];
-    var circleArr3 = ['5', '10', '15', '20', '25', '30', '35', '40', '45'];
+    var circleArr1 = ['1', '20', '30', '40', '50', '60', '70', '80', '90'];
+    var circleArr2 = ['2', '10', '15', '20', '25', '30', '35', '40', '45'];
+    var circleArr3 = ['3', '10', '15', '20', '25', '30', '35', '40', '45'];
+
+    var startFirst = circleArr1[0]+ ', 100';
+    var startSecond = circleArr2[0]+ ', 100';
+    var startThird = circleArr3[0]+ ', 100';
+
+    $('.first-circle').css('stroke-dasharray', startFirst);
+    $('.second-circle').css('stroke-dasharray', startSecond);
+    $('.third-circle').css('stroke-dasharray', startThird);
+    $('.first-number').text(circleArr1[0]);
+    $('.second-number').text(circleArr2[0]);
+    $('.third-number').text(circleArr3[0]);
 
     $('.program-graf_main .program-graf-item').click(function(){
         var currentIndex = $(this).index();
@@ -389,6 +410,7 @@ $(document).ready(function () {
     $('.news-content').masonry({
         // options
         itemSelector: '.news-item',
+        columnWidth: '.grid-sizer2',
         percentPosition: true,
         gutter: 40,
         horizontalOrder: true

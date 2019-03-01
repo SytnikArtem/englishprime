@@ -15,6 +15,7 @@
 
 <body>
 	@import "header.html"
+	@import "mobile-menu.html"
 	@import "page-line.html"
 	<section class="section schedule">
 		<div class="container">
@@ -113,15 +114,17 @@
 			<div class="schedule-content">
 				<div class="schedule-table table table_white">
 					<div class="table-left">
-						<ul class="table-list table-list_white">
-							<li class="table-item active gsapFadeTop" data-delay="0.4" data-duration="1">Оболонь</li>
-							<li class="table-item gsapFadeTop" data-delay="0.45" data-duration="1">Университет</li>
-							<li class="table-item gsapFadeTop" data-delay="0.5" data-duration="1">Позняки</li>
-							<li class="table-item gsapFadeTop" data-delay="0.55" data-duration="1">Олимпийская</li>
-							<li class="table-item gsapFadeTop" data-delay="0.6" data-duration="1">Троещина</li>
-							<li class="table-item gsapFadeTop" data-delay="0.65" data-duration="1">Площадь Льва Толстого</li>
-							<li class="table-item gsapFadeTop" data-delay="0.7" data-duration="1">Печерская</li>
-						</ul>
+						<div class="table-select table-select_nomarg">
+							<ul class="table-list">
+								<li class="table-item active gsapFadeTop" data-delay="0.4" data-duration="1">Оболонь</li>
+								<li class="table-item gsapFadeTop" data-delay="0.45" data-duration="1">Университет</li>
+								<li class="table-item gsapFadeTop" data-delay="0.5" data-duration="1">Позняки</li>
+								<li class="table-item gsapFadeTop" data-delay="0.55" data-duration="1">Олимпийская</li>
+								<li class="table-item gsapFadeTop" data-delay="0.6" data-duration="1">Троещина</li>
+								<li class="table-item gsapFadeTop" data-delay="0.65" data-duration="1">Площадь Льва Толстого</li>
+								<li class="table-item gsapFadeTop" data-delay="0.7" data-duration="1">Печерская</li>
+							</ul>
+						</div>
 					</div>
 					<div class="table-right">
 						<div class="table-line table-line_first gsapWidth" data-delay="1" data-duration="1.5"></div>
@@ -543,7 +546,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="schedule-question">
+    <section class="schedule-question">
 		<div class="container">
 			<div class="schedule-question-flex">
 				<div class="schedule-question-left">

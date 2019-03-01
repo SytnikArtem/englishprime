@@ -64,6 +64,12 @@
       padding: 0 0 70px
     &_club
       padding-top: 0
+    &_post
+      padding-top: 15px
+    &_public
+      padding-top: 50px
+    &_reviews
+      padding-top: 0
   .fifth
     margin-top: -220px
   .fifth-list
@@ -133,9 +139,36 @@
     padding: 40px
   .sale-item-number
     font-size: 94px
+  .first-title_program
+    line-height: 0.92
+  .news-item-content
+    padding: 32px 25px 35px
+  .news-title
+    font-size: 24px
+  .post-content
+    padding: 0
+  .public-content
+    padding: 40px 0px 85px
+  .reviews-filter-link
+    margin-right: 20px
+  .schedule-content-text
+    padding-left: 280px
+  .schedule-question-flex
+    padding: 0
+  .second-right-technique
+    padding: 0 50px 80px 50px
+  .training-main-item
+    width: calc(25% - 10px)
+  .training-main-row-title
+    font-size: 22px
+  .program-graf-bg_second
+    background-size: 200%
+    top: -32px
 @media only screen and (max-width : 1023px)
   .header-center
     display: none
+  .first-right
+    flex-shrink: 1
   .header-right
     display: none
   .header-left
@@ -148,8 +181,8 @@
     display: block
   .first-slider
     padding: 0 20px
-  .first-right
-    width: 100%
+  //.first-right
+  //  width: 100%
   .first-left
     width: 340px
     flex-shrink: 0
@@ -448,6 +481,104 @@
     padding-bottom: 60px
   .program-graf-overlay
     display: none
+  .second_mastery
+    padding-bottom: 60px
+  .grid-sizer2, .news-item
+    width: calc(50% - 20px)
+  .fourth-right_post
+    margin-left: 0
+  .fourth-flex
+    position: relative
+  .post-top
+    position: absolute
+    margin: 0
+    left: 0
+    top: -45px
+  .post-content-right
+    margin-left: 20px
+  .post-link
+    font-size: 26px
+  .fourth_post
+    padding-top: 45px
+  .post-social
+    margin-top: 15px
+  .post-social-list
+    margin-top: 20px
+  .reviews-filter
+    margin-top: 35px
+  .reviews-item
+    padding: 30px
+  .reviews-content
+    padding: 40px 0
+  .schedule-block
+    padding: 0 50px 50px 50px
+  .schedule-bottom
+    padding: 50px
+  .schedule-content-text
+    padding-left: 0
+  .table_white
+    padding: 60px 0
+  .schedule-content-text
+    margin-top: -20px
+  .schedule-question
+    padding: 60px 0
+  .schedule-question-left
+    width: 340px
+  .schedule-right
+    width: calc(100% - 370px)
+  .schedule-bottom-date
+    width: 150px
+  .schedule-left
+    width: 370px
+  .schedule-content
+    padding-bottom: 50px
+  .advanced-item_big
+    width: calc(50% - 20px)
+  .list_big
+    margin-bottom: 0
+  .teachers
+    padding: 70px 0 50px
+  .teachers-item
+    width: calc(25% - 10px)
+    margin-right: 13px
+    margin-bottom: 13px
+  .teachers-info
+    left: 20px
+    bottom: 20px
+  .beginner-flex_nopad
+    padding-top: 30px
+  .teachers-top
+    padding: 0
+  .training-top
+    justify-content: space-between
+    padding-bottom: 40px
+  .training-top-item
+    margin-right: 20px
+    &:last-child
+      margin-right: 0
+  .training-content-left
+    padding-right: 20px
+  .training-content-center
+    padding: 0 20px 0 30px
+  .training-content-right
+    padding-left: 30px
+  .training
+    padding-bottom: 70px
+  .training-main-item
+    width: calc(50% - 20px)
+    margin-bottom: 40px
+  .training-main
+    flex-wrap: wrap
+  .training-description
+    margin-top: 10px
+  .training-bottom
+    margin-top: 40px
+    flex-direction: column
+  .training-bottom-right
+    flex-direction: column
+    margin-top: 20px
+  .print-btn
+    margin: 20px 0 0
 @media only screen and (max-width : 767px)
   .first-flex, .second-flex
     flex-direction: column
@@ -458,6 +589,7 @@
     margin-left: -40px
   .title
     font-size: 54px
+    letter-spacing: -0.4px
   .first
     padding-top: 35px
   .first-slider
@@ -597,6 +729,10 @@
       padding: 35px 0 40px
     &_club
       padding-top: 35px
+    &_post
+      padding: 80px 0 10px
+    &_reviews
+      padding-top: 40px
   .fourth-right
     margin-top: 15px
   .fourth-list
@@ -982,10 +1118,9 @@
   .jobs-img
     max-width: calc(100% + 500px)
     margin-left: -250px
-  .second
-    overflow: hidden
   .jobs
     padding: 30px 0 0
+    overflow: hidden
   .jobs-content
     margin-top: 0
   .jobs-item-number
@@ -995,12 +1130,203 @@
   .jobs-tab-btn
     padding-right: 50px
   .program-graf-overflow
-    min-width: 550px
+    min-width: 590px
     padding-right: 40px
   .program-graf
     overflow: scroll
     padding: 0 40px
     width: calc(100% + 80px)
-    margin-left: -40px
+    margin: 65px 0 30px -40px
   .program-graf-bg
     width: calc(100% - 40px)
+    top: -20px
+  .program-flex
+    flex-direction: column
+  .program
+    padding: 35px 0 5px
+  .program-right
+    margin-top: 45px
+  .program-graf-overflow
+    position: relative
+  .program-content-block
+    flex-direction: column
+    padding: 180px 0 35px
+  .program-circle
+    left: 0
+    top: 130px
+  .program-circle-item
+    margin-left: 0
+    margin-right: 40px
+  .program-content-column
+    width: 100%
+    padding: 0 0 40px
+    margin-bottom: 35px
+    border-left: none
+    border-bottom: 1px solid #f5f7fa
+    &:last-child
+      margin-bottom: 0
+      padding: 0
+      border: none
+  .program-content-name
+    margin-bottom: 15px
+  .first-right
+    width: 100%
+  .first-right_mastery
+    margin-top: 100px
+  .second_mastery
+    padding-bottom: 5px
+  .grid-sizer2, .news-item
+    width: 100%
+  .news-title
+    font-size: 32px
+  .news-content
+    margin: 40px 0 0
+  .news-item-content
+    padding: 32px 40px 35px
+  .post-title_show
+    display: block
+  .span-first-title-span
+    line-height: 48px
+  .overflow_big
+    height: 350px
+  .post-content
+    flex-direction: column
+    padding-top: 35px
+  .post-content-left
+    width: 100%
+  .post-content-right
+    width: 100%
+    margin-left: 0
+    margin-top: 30px
+  .post-img
+    margin-top: 50px
+  .post-link
+    font-size: 32px
+  .public-content
+    padding: 40px 0 15px
+  .reviews-item
+    width: 100%
+    margin-right: 0
+  .reviews-filter
+    width: calc(100% + 40px)
+    overflow: auto
+  .reviews-filter-overflow
+    width: 690px
+    padding-bottom: 30px
+  .reviews-filter-link
+    margin-right: 23px
+  .reviews-content
+    padding: 5px 0 20px
+  .reviews-item
+    padding: 40px
+    margin-bottom: 20px
+  .schedule-flex
+    flex-direction: column-reverse
+  .schedule-right
+    width: 100%
+  .schedule-question-flex
+    flex-direction: column
+  .schedule-question-right
+    width: 100%
+  .schedule-block
+    padding: 0 0 40px
+  .schedule
+    padding: 40px 0 50px
+  .schedule-bottom
+    width: calc(100% + 80px)
+    margin-left: -40px
+    padding: 30px 40px 40px
+  .schedule-bottom-row
+    margin-bottom: 25px
+    padding-bottom: 20px
+  .schedule-bottom-date
+    width: 170px
+  .schedule-bottom-lesson
+    margin-top: -10px
+  .schedule-left
+    width: 100%
+    margin-top: 35px
+  .schedule-content
+    padding-bottom: 30px
+  .schedule-question
+    padding: 5px 0 40px
+  .schedule-question-text
+    margin: 30px 0 30px
+  .schedule-contacts
+    flex-direction: column
+    margin-bottom: 30px
+  .schedule-contacts-left
+    margin-bottom: 25px
+  .schedule-question-btn
+    max-width: 310px
+    margin-top: 10px
+  .second-right-technique
+    margin: 0
+    padding: 0 0 30px
+  .second-flex_reverse
+    flex-direction: column-reverse
+  .second-technique
+    padding-top: 30px
+  .second-description_technique
+    margin: 20px 0
+  .second-right-technique_mobile
+    display: block
+  .second-right-technique_desc
+    display: none
+  .second-left_technique
+    margin-bottom: 40px
+  .fourth_technique
+    padding-top: 40px
+  .beginner-flex_technique
+    padding: 20px 0 40px
+  .teachers
+    padding: 35px 0 15px
+  .teachers-item
+    width: calc(50% - 10px)
+    margin-right: 20px
+    margin-bottom: 85px
+    &:nth-child(even)
+      margin-right: 0
+  .teachers-info
+    left: 0
+    bottom: -60px
+  .subtitle_technique
+    max-width: 400px
+  .training-top
+    flex-direction: column
+  .training-top
+    margin: 25px 0 25px
+  .training-top-item
+    margin: 0 0 40px 0
+    &:last-child
+      margin-bottom: 0
+  .training-content
+    flex-direction: column
+    margin-top: 30px
+  .training-content-center
+    padding: 0 0 35px 0
+    margin-bottom: 40px
+    border-left: none
+    border-bottom: 1px solid #efecec
+    width: 100%
+  .training-content-right
+    padding: 0
+    border: none
+  .training-content-left
+    padding: 0 0 35px 0
+    margin-bottom: 40px
+    width: 100%
+    border-bottom: 1px solid #efecec
+  .training-info
+    margin: 40px 0 30px
+  .training
+    padding-bottom: 40px
+  .program-graf-bg_second
+    top: -22px
+  .training-main-item
+    width: 100%
+    margin-bottom: 20px
+  .training-main-title
+    min-height: auto
+  .training-main-row-title
+    font-size: 32px
